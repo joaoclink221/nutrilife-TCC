@@ -1,0 +1,14 @@
+
+
+* {
+  margin: 0;
+  background-color: #f5fff7;
+}
+
+.buttons{
+
+  display: flex;
+  background-color: transparent;
+  border-radius: 51px;
+  border-color: #ffff;
+}
