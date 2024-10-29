@@ -1,4 +1,4 @@
-import './agenda.scss';
+import './agenda.css';
 import  Calendario  from '../../components/calendar/Calendario';
 import { House, CircleDollarSign, Mail, Calendar, ClipboardList} from "lucide-react";
 

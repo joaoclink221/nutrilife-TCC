@@ -1,0 +1,14 @@
+/* leading page nutri 1 */
+
+* {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: 8159px;
+    top: 2888px;
+  
+    background-image: url("/frontend/public/assets/images/fundo1.svg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    }

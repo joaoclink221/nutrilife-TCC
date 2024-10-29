@@ -1,6 +1,4 @@
-import React from 'react'
-
-const inicio = () => {
+const Inicio = () => {
   return (
     <div>
       
@@ -8,4 +6,4 @@ const inicio = () => {
   )
 }
 
-export default inicio
+export default Inicio

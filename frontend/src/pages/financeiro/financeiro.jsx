@@ -1,6 +1,4 @@
-import React from 'react'
-
-const financeiro = () => {
+const Financeiro = () => {
   return (
     <div>
       
@@ -8,4 +6,4 @@ const financeiro = () => {
   )
 }
 
-export default financeiro
+export default Financeiro

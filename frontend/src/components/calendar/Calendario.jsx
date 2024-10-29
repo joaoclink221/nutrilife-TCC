@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import "./Calendario.scss"
+import { useState } from "react";
+import "../calendar/Calendar.css"
 const Calendario = () => {
     const [dataAtual, setDataAtual] = useState(new Date());
 
