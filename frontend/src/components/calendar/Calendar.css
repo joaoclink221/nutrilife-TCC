@@ -19,7 +19,8 @@
 
 .dia {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: none;
+    background: none;
     margin: 2px;
 }
 
@@ -29,5 +30,17 @@
 }
 
 .vazio {
+    border: none;
+}
+
+.title{
+    font-family: Montserrat;
+
+}
+
+.ap{
+    background: none;
+    height: 3rem;
+    width: 3rem;
     border: none;
 }

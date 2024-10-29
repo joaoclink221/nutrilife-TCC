@@ -17,7 +17,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='/início' element = {<Inicio />}/>
         <Route path='/finaceiro' element = {<Financeiro />}/>
         <Route path='/agenda' element = {<Agenda />}/>
-
       </Routes>
     </Router>
   </StrictMode>,

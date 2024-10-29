@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../calendar/Calendar.css"
+import {ChevronRight, ChevronLeft} from "lucide-react"
 const Calendario = () => {
     const [dataAtual, setDataAtual] = useState(new Date());
 
@@ -46,9 +47,9 @@ const Calendario = () => {
     return (
         <div id="calendario">
             <div id="header">
-                <button onClick={() => mudarMes(-1)}>◀</button>
-                <h2>{dataAtual.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}</h2>
-                <button onClick={() => mudarMes(1)}>▶</button>
+                <button className="ap" onClick={() => mudarMes(-1)}><ChevronLeft/></button>
+                <h2 className="title">{dataAtual.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}</h2>
+                <button className="ap"   onClick={() => mudarMes(1)}><ChevronRight/></button>
             </div>
             <div id="dias">
                 {renderizarDias()}
