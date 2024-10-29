@@ -30,6 +30,7 @@ export default function Agenda() {
           <span className="dot blue-dot"></span> Consulta
         </div>
       </div>
+      
       <main className="main-content">
         <header className="header">
           <div className="user-info">
