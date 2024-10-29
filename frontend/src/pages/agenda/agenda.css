@@ -1,101 +1,114 @@
-
 body {
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 5rem;
+  background-color: #b6f6c5;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-icons {
   
-  .container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 5rem;
-    background-color: #D3FFDD;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .sidebar-button {
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .menu-icons {
-    width: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .icon {
-    font-size: 24px;
-  }
-  
-  .color-code {
-    margin-top: 20px;
-  }
-  
-  .color-code h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .color-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  
-  .green-dot { background-color: #2DBE56; }
-  .red-dot { background-color: #EB5757; }
-  .blue-dot { background-color: #2F80ED; }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .user-name {
-    font-weight: bold;
-  }
-  
-  .user-company {
-    color: #666;
-  }
-  
-  .user-avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
- 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 20px;
+  background: none;
+}
+.min {
+  width: 3rem;
+  height: 3rem;
+  background:none;
+}
+.mind {
+  width: 3.4rem;
+  height: 3.4rem;
+  background:none;
+}
+.icon {
+  border: none;
+
+  background: none;
+}
+.sidebar-button {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.color-code {
+  margin-top: 20px;
+}
+.color-code h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.green-dot {
+  background-color: #2dbe56;
+}
+.red-dot {
+  background-color: #eb5757;
+}
+.blue-dot {
+  background-color: #2f80ed;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.user-company {
+  color: #666;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
