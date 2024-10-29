@@ -52,7 +52,9 @@ const Calendario = () => {
                 <button className="ap"   onClick={() => mudarMes(1)}><ChevronRight/></button>
             </div>
             <div id="dias">
+                
                 {renderizarDias()}
+                
             </div>
         </div>
     );
