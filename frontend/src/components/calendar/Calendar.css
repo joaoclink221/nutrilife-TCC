@@ -1,8 +1,9 @@
 
 #calendario {
-    max-width: 300px;
+    max-width: 25.3rem;
     margin: 0 auto;
     text-align: center;
+    border: 3px solid #6d6b6b;
 }
 
 #header {
@@ -11,17 +12,19 @@
     align-items: center;
 }
 
-#dias {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin-top: 10px;
-}
+    #dias {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        margin-top: 10px;
+    }
+    
 
 .dia {
     padding: 10px;
     border: none;
     background: none;
     margin: 2px;
+    
 }
 
 .titulo {
@@ -35,7 +38,7 @@
 
 .title{
     font-family: Montserrat;
-
+    
 }
 
 .ap{
@@ -43,4 +46,7 @@
     height: 3rem;
     width: 3rem;
     border: none;
+}
+#dias:hover{
+    background-color: #6d6b6b;
 }
