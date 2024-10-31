@@ -1,11 +1,10 @@
-import './agenda.css';
-import Header2 from '../../components/header/header2';
-
+import './agenda.scss';
+import Calendario from "../../components/calendar/Calendario.jsx"
 export default function Agenda() {
   return (
-    <div className="container">
-      <Header2/>
-      sla
+    <div>
+      <Calendario/>
+      <h1>olá</h1>
     </div>
   )
 }

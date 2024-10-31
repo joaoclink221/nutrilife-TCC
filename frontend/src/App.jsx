@@ -1,4 +1,4 @@
-import './app.css';
+import './app.scss';
 
 const Header = () => (
   <div className='header'>
