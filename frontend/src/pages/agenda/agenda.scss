@@ -1,0 +1,77 @@
+* {
+  background-color: #ffffff;
+}
+
+.pt-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40rem;
+  background-color: #ffffff;
+}
+.pre-Modal {
+  display: flex;
+  gap: 25px;
+  background: none;
+}
+.link {
+  text-decoration: none;
+}
+.agendamento {
+  border: 3px solid #00bf63;
+  border-radius: 5px;
+  width: 11.5rem;
+  height: 3rem;
+  font-size: 17px;
+  font-weight: 400;
+  color: #00bf63;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+.agendamento:hover {
+  background-color: #49d190;
+  color: white;
+}
+
+.filter {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+#startDate {
+  width: 11rem;
+  height: 3rem;
+  font-size: 20px;
+}
+#endDate {
+  width: 11rem;
+  height: 3rem;
+  font-size: 20px;
+}
+.filter2 {
+  border: 3px solid #018b48;
+  border-radius: 8px;
+  width: 8rem;
+  height: 2.8rem;
+  font-size: 17px;
+  background-color: #00bf63;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.filter2:hover {
+  background-color: #12a75f;
+  color: white;
+}
+.table {
+  margin-top: 3rem;
+  text-align: center;
+}
+th {
+  font-size: 20px;
+}
+td {
+  font-size: 20px;
+}

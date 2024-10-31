@@ -1,34 +1,28 @@
 export const navigation = [
     {
       id: "0",
-      title: "Características",
-      url: "#features",
+      title: "Inicio",
+      url: "/inicio",
     },
     {
       id: "1",
-      title: "Preços",
-      url: "#pricing",
+      title: "Finaceiro",
+      url: "/finaceiro",
     },
     {
       id: "2",
-      title: "Como usar",
-      url: "#how-to-use",
+      title: "Menssagem",
+      url: "/menssagem",
     },
     {
       id: "3",
-      title: "Planejamento",
-      url: "#roadmap",
-    },
-    {
-      id: "4",
-      title: "Nova conta",
-      url: "#signup",
-      onlyMobile: true,
+      title: "Agendamento",
+      url: "/agendamento",
     },
     {
       id: "5",
       title: "Entrar",
-      url: "#login",
+      url: "/login",
       onlyMobile: true,
     },
   ];
