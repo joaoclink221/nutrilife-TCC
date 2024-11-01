@@ -1,7 +1,7 @@
 import "./Calendar.scss"
 import { Link } from "react-router-dom"
 import { navigation } from "../../constants"
-const Calendario = () => {
+const Header2 = () => {
     return (
         <div className="cable">
             {navigation.map((item) => (
@@ -16,4 +16,4 @@ const Calendario = () => {
     )
 }
 
-export default Calendario
+export default Header2

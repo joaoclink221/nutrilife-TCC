@@ -1,0 +1,50 @@
+.freya{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    align-items: center;
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+}
+.addUser{
+    height: 2.8rem;
+    width: 13rem;
+    border: 3px solid #018b48;
+    border-radius: 0.5rem;
+    background-color: #00bf63;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.addUser:hover{
+    background-color: #12a75f;
+    color: white;
+}
+.icon-user{
+    background: none;
+}
+
+#filtro{
+    width: 7rem;
+    height: 2.8rem;
+    border: 2px solid;
+    border-radius: 0.5rem;
+}
+
+
+.table {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  th {
+    font-size: 20px;
+  }
+  td {
+    font-size: 20px;
+  }

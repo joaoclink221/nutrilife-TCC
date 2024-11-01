@@ -1,10 +1,10 @@
 import './agenda.scss';
 import { Link } from 'react-router-dom';
-import Calendario from "../../components/calendar/Calendario.jsx"
+import Header2 from "../../components/calendar/Calendario.jsx"
 export default function Agenda() {
   return (
     <div className='odin'>
-      <Calendario />
+      <Header2 />
       <div className='pt-2'>
         <div className='pre-Modal'>
           <h2>Agendamento</h2>
