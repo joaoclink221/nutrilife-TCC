@@ -1,85 +1,87 @@
 /* login.css */
+ 
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../../assets/image/fundo.svg)no-repeat; 
+  background-size: cover;
+  background-position: center;
+}
 
-.login-container {
-    height: 100vh;
-    background-image: url('/assets/image/imagem1.svg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card {
-    position: relative;
-    border-radius: 0.5rem; /* rounded-lg */
-    max-width: 32rem; /* max-w-lg */
-    margin: auto; /* m-auto */
-    background-color: #1c1f24; /* bg-zinc-900 */
-    padding: 1.25rem 1rem; /* px-4 pt-5 pb-4 */
-    border: 1px solid #3b3f47; /* border border-zinc-800 */
-    box-shadow: 0 2px 4px rgba(57, 62, 86, 0.5);
-  }
-  
-  .title {
-    color: #146E0F; /* text-zinc-100 */
-    margin-top: 1.5rem; /* mt-6 */
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: bold; /* font-bold */
-  }
-  
-  
-  .input-label {
-    display: block;
-    color: #146E0F; /* text-zinc-100 */
-    font-weight: 500; /* font-medium */
-  }
-  
-  .input {
-    width: 100%;
-    appearance: none;
-    border-radius: 0.375rem; /* rounded-md */
-    color: #e5e5e5; /* text-zinc-100 */
-    background-color: #ffffff; /* bg-zinc-800 */
-    border: 1px solid #146E0F; /* border-violet-700 */
-    padding: 0.5rem; /* px-3 py-2 */
-    font-size: 0.875rem; /* text-sm */
-  }
-  
-  .checkbox-label {
-    margin-left: 0.5rem; /* ml-2 */
-    color: #146E0F; /* text-zinc-100 */
-  }
-  
-  .button {
-    width: 100%;
-    border:1px solid #146E0F;
-    border-radius: 0.375rem; /* rounded-md */
-    background-color: #fffdfd; /* bg-violet-600 */
-    padding: 0.5rem; /* py-2 px-4 */
-    color:#146E0F; /* text-black-10 */
-    font-size: 0.875rem; /* text-sm */
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .button:hover {
-    background-color: #d3ffdd; /* hover:bg-violet-700 */
-  }
-  
-  .footer-text {
-    margin-top: 1.5rem; /* mt-6 */
-    text-align: center;
-  }
-  
-  .link {
-    color: #8b5cf6; /* text-violet-600 */
-    transition: color 0.2s;
-  }
-  
-  .link:hover {
-    color: #6d28d9; /* hover:text-violet-500 */
-  }
-  
-  /* Add more styles as needed */
-  
+.wrapper{
+width: 420px;
+background: transparent;
+border: 2px solid rgb(255, 255, 255, .2);
+box-shadow: 0 0 10px; 
+backdrop-filter: blur(30px);
+color:#146e0f;
+border-radius: 10px;
+padding: 30px 40px;
+}
+
+.wrapper h1{
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper .input-box{
+position: relative;
+width: 100%;
+height: 50px;
+margin: 30px 0;
+}
+
+.input-box input{
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow:0 0 10px rgba(10, 136, 10, 0.801);
+  font-size: 16px;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color:#146e0f;
+}
+
+.input-box .icon {
+  position:absolute ;
+  right: 20px;
+  top: 50%;  
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+ accent-color: #146e0f;
+ margin-right:4px ;
+}
+.remember-forgot a {
+  color: #146e0f;
+  text-decoration: none;
+}
+
+.wrapper button {
+  width: 100%;
+  height: 45px;
+  background: #287c24;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow:0 0 10px rgba(0,0,0, .1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 700;
+}
