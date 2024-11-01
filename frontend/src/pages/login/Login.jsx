@@ -5,6 +5,7 @@ import {UserRound,KeySquare} from "lucide-react"
 
 export default function Login() {
   return (
+    <div className="zeus">
     <div className="wrapper">
       <form action="">
         <h1>Login</h1>
@@ -28,6 +29,7 @@ export default function Login() {
 
         
       </form>
+    </div>
     </div>
   )
 }
