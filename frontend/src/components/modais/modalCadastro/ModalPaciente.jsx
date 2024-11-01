@@ -1,8 +1,11 @@
+import "./ModalPaciente.scss"
 const ModalPaciente = () => {
     return (
         <div>
             <form action="" id="formulario">
                 <div className="Dados-iniciais">
+                    <h1>Dados-iniciais</h1>
+                    <div className="heimdal">
                     <div>
                         <label htmlFor="name">Nome</label>
                         <div>
@@ -22,6 +25,7 @@ const ModalPaciente = () => {
                                 <option value="">Feminino</option>
                                 <option value="">Masculino</option>
                             </select>
+                        </div>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,14 @@
 #formulario{
     display: flex;
+    flex-direction: column;
 }
 
 .Dados-iniciais{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+.heimdal{
+    display: flex;
+    align-items: center;
+
 }

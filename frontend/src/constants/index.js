@@ -17,7 +17,12 @@ export const navigation = [
     {
       id: "3",
       title: "Agendamento",
-      url: "/agendamento",
+      url: "/agenda",
+    },
+    {
+      id: "4",
+      title: "Pacientes",
+      url: "/pacientes",
     },
     {
       id: "5",
