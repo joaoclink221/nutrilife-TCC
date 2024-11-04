@@ -10,5 +10,87 @@
 .heimdal{
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 15rem;
+}
+.mimir{
+    width: 22rem;
+    height: 2.5rem;
+    border: 2px solid #6ae089;
+    border-radius: 8px;
+}
 
+.loki{
+    width: 14rem;
+    height: 2.5rem;
+    border: 2px solid #6ae089;
+    border-radius: 8px;
+    font-size: larger;
+}
+
+.Dados-da-Paciente{
+    display: flex;
+    flex-direction: column;
+}
+.control{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.info-dieta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    gap: 60px;
+}
+.sla{
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+}
+
+.noname{
+    width: 15rem;
+    height: 2.5rem;
+    border: 2px solid #6ae089;
+    border-radius: 8px;
+}
+.atlas{
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    
+}
+h1{
+    margin: 2rem;
+}
+.nem{
+    display: flex;
+    flex-direction: column;
+}
+.description{
+    margin: 2rem;
+    width: 42rem;
+    height: 15rem;
+    border: 3px solid #6ae089;
+    border-radius: 8px;
+    font-size: x-large;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.bnt{
+    width: 6rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: #6ae089a2;
+    border-radius: 12px;
+    border: none;
 }
