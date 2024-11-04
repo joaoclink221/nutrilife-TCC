@@ -15,7 +15,7 @@ export default function Login() {
           
         </div>
         <div className="input-box">
-          <input type="text" placeholder="Password" required />
+          <input type="password" autoComplete="true" placeholder="Password" required />
           <KeySquare className="icon"/>
 
         </div>
