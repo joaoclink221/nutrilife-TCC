@@ -6,6 +6,9 @@ import {UserRound,KeySquare} from "lucide-react"
 export default function Login() {
   return (
     <div className="zeus">
+      <Link to="/" className="back-button">
+          Voltar
+        </Link>
     <div className="wrapper">
       <form action="">
         <h1>Login</h1>

@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url(../../assets/image/fundo.svg)no-repeat; 
+  background: url(../../assets/image/fundoLogin.svg)no-repeat; 
   background-size: cover;
   background-position: center;
 }
@@ -84,4 +84,18 @@ margin: 30px 0;
   font-size: 16px;
   color: #ffffff;
   font-weight: 700;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #287c24;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
