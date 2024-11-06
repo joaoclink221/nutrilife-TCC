@@ -75,30 +75,33 @@
   font-size: 1rem;
 }
 .hollow {
-  width: 6rem;
-  height: 3rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #5fc68d, #4db86b);
-  border-radius: 12px;
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-
-  .hollow:hover {
-    background: linear-gradient(135deg, #4db86b, #3ea65b);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-  }
-
-  .hollow:active {
-    transform: translateY(1px);
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  }
+    width: 6rem;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #5fc68d, #4db86b); 
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease; 
 }
+
+
+.hollow:hover {
+    background: linear-gradient(135deg, #4db86b, #3ea65b); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-2px); 
+}
+
+
+.hollow:active {
+    transform: translateY(1px); 
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
