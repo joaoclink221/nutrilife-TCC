@@ -76,8 +76,8 @@ if(!isOpen) return null;
                 <textarea className="description" />
               </div>
               <div className="mid">
-                <button className="bnt">Salvar</button>
-                <button className="bnt">Excluir</button>
+                <button className="hollow">Salvar</button>
+                <button className="hollow">Excluir</button>
               </div>
             </div>
           </div>

@@ -1,7 +1,10 @@
 import './agenda.scss';
 import { Link } from 'react-router-dom';
 import Header2 from "../../components/calendar/Calendario.jsx"
+import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx" 
+import { useState } from 'react';
 export default function Agenda() {
+  const [isModalOpen,  setIsModalOpen] = useState(false);
   return (
     <div className='odin'>
       <Header2 />
@@ -9,10 +12,11 @@ export default function Agenda() {
         <div className='pre-Modal'>
           <h2>Agendamento</h2>
           <Link className='link'>
-            <button className='agendamento'>
+            <button className='agendamento' onClick={() => setIsModalOpen(true)}>
               Novo Agendamento
             </button>
           </Link>
+          <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
         </div>
         <div className='filter'>
           <input id='startDate'
@@ -23,7 +27,7 @@ export default function Agenda() {
             className="form-control"
             type="date" />
 
-          <button className='filter2'>
+          <button className='hollow'>
             Fitrar
           </button>
         </div>
