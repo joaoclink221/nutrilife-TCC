@@ -1,14 +1,18 @@
 import Header2 from "../../components/calendar/Calendario"
 import "./pacientes.scss"
+import ModalPaciente from "../../components/modais/modalCadastro/ModalPaciente"
 import { UserRoundPlus } from "lucide-react"
+import { useState } from "react"
 const Pacientes = () => {
+  const [isModalOpen,  setIsModalOpen] = useState(false);
   return (
     <div>
       <Header2 />
       <div className="freya">
         <h1>Pacientes</h1>
         <div className="add">
-          <button className="addUser"><UserRoundPlus className="icon-user"/> Adicionar Paciente</button>
+          <button className="addUser" onClick={() => setIsModalOpen(true)}><UserRoundPlus className="icon-user"/> Adicionar Paciente</button>
+          <ModalPaciente isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
           <select name="filter" id="filtro">
             <option value="">Todos</option>
             <option value="">Comum</option>

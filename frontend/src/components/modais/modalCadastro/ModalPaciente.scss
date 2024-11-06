@@ -1,96 +1,143 @@
-#formulario{
+/* Sobreposição do modal para cobrir a tela inteira */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Escurecimento do fundo */
     display: flex;
-    flex-direction: column;
-}
-
-.Dados-iniciais{
-    display: flex;
-    flex-direction: column;
-}
-.heimdal{
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15rem;
-}
-.mimir{
-    width: 22rem;
-    height: 2.5rem;
-    border: 2px solid #6ae089;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Caixa de conteúdo do modal */
+  .modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 90vh; 
+    scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #6ae089 #e0e0e0;
+  }
+  .modal-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  .modal-content::-webkit-scrollbar-track {
+    background: #e0e0e0;
     border-radius: 8px;
-}
-
-.loki{
-    width: 14rem;
-    height: 2.5rem;
-    border: 2px solid #6ae089;
+  }
+  .modal-content::-webkit-scrollbar-thumb {
+    background-color: #6ae089;
     border-radius: 8px;
+    border: 2px solid #e0e0e0;
+  }
+  .modal-content::-webkit-scrollbar-thumb:hover {
+    background-color: #4db86b; 
+  }
+  
+  /* Botão de fechar */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Estilo do formulário */
+  #formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre seções */
+  }
+  
+  /* Seções de dados iniciais */
+  .Dados-iniciais,
+  .Dados-da-Paciente {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+  }
+  
+  /* Alinhamento dos inputs */
+  .heimdal,
+  .info-dieta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Espaçamento entre inputs */
+    justify-content: space-between;
+  }
+  
+  .sla {
+    display: flex;
+    flex-direction: column;
     font-size: larger;
-}
-
-.Dados-da-Paciente{
-    display: flex;
-    flex-direction: column;
-}
-.control{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-}
-.info-dieta{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
-    gap: 60px;
-}
-.sla{
-    display: flex;
-    flex-direction: column;
-    font-size: larger;
-}
-
-.noname{
-    width: 15rem;
+  }
+  
+  .mimir,
+  .loki,
+  .noname {
+    width: 100%;
+    max-width: 22rem;
     height: 2.5rem;
     border: 2px solid #6ae089;
     border-radius: 8px;
-}
-.atlas{
-    display: flex;
-    flex-direction: row;
-    
-    align-items: center;
-    
-}
-h1{
-    margin: 2rem;
-}
-.nem{
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  
+  .control {
     display: flex;
     flex-direction: column;
-}
-.description{
-    margin: 2rem;
-    width: 42rem;
+    align-items: center;
+  }
+  
+  .atlas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  
+  .nem {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .description {
+    width: 100%;
+    max-width: 42rem;
     height: 15rem;
     border: 3px solid #6ae089;
     border-radius: 8px;
-    font-size: x-large;
-}
-
-.mid{
+    padding: 10px;
+    font-size: large;
+    resize: vertical;
+  }
+  
+  .mid {
     display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-}
-.bnt{
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .bnt {
     width: 6rem;
     height: 3rem;
-    margin: 1rem;
     background-color: #6ae089a2;
     border-radius: 12px;
     border: none;
-}
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
