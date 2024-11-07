@@ -6,7 +6,7 @@ const Financeiro = () => {
       <Header2 />
     <div className="pai-financeiro">
       <h2>Financeiro</h2>
-      <h1>Setembor</h1>
+      <h1>Setembro</h1>
       <div className='tabela'>
       <table className="table table-hover">
         <thead>
