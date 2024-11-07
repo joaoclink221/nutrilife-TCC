@@ -1,4 +1,4 @@
-import Header2 from "../../components/calendar/Calendario"
+import Header2 from "../../components/header2/Header2.jsx"
 import "./pacientes.scss"
 import ModalPaciente from "../../components/modais/modalCadastro/ModalPaciente"
 import { UserRoundPlus } from "lucide-react"

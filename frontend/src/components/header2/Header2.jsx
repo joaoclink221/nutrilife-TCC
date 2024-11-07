@@ -1,4 +1,4 @@
-import "./Calendar.scss"
+import "./Header2.scss"
 import { Link } from "react-router-dom"
 import { navigation, LandingHeader } from "../../constants"
 const Header2 = () => {
