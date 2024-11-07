@@ -68,3 +68,24 @@ export const navigation = [
     },
   ]
   
+
+  export const Cards =[
+    {
+      id: "0",
+      text: "Ajudará você a tornar seu estilo de vida mais saudável"
+    },
+    {
+      id: "1",
+      text: "Você terá acesso a artigos para entender melhor sobre principais assuntos sobre nutrição"
+    },
+
+    {
+      id: "2",
+      text: "Aumento de energia e vitalidade tornando sau vida mais longa"
+    },
+
+    {
+      id: "3",
+      text: "Cosnultas e exames pensados em seu bem_estar, por um preço acessível"
+    }
+  ]
