@@ -6,8 +6,8 @@ export const navigation = [
     },
     {
       id: "1",
-      title: "Finaceiro",
-      url: "/finaceiro",
+      title: "Financeiro",
+      url: "/financeiro",
     },
     {
       id: "2",
