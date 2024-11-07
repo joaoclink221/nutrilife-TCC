@@ -1,6 +1,6 @@
 import './agenda.scss';
 import { Link } from 'react-router-dom';
-import Header2 from "../../components/calendar/Calendario.jsx"
+import Header2 from "../../components/header2/Header2.jsx"
 import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx" 
 import { useState } from 'react';
 export default function Agenda() {
