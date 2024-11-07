@@ -1,6 +1,6 @@
 import "./Header2.scss"
 import { Link } from "react-router-dom"
-import { navigation, LandingHeader } from "../../constants"
+import { navigation } from "../../constants"
 const Header2 = () => {
     return (
         <div className="cable">
@@ -20,17 +20,3 @@ export default Header2
 
 
 
-export const HeaderLanding = () => {
-  return (
-    <div>
-        {LandingHeader.map((item) => (
-                <Link className="buttons"
-                    key={item.id}
-                    to={item.url}>
-                    {item.title}
-                    <span className="gradient-underline"></span>
-                </Link>
-            ))}
-    </div>
-  )
-}

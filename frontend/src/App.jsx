@@ -1,5 +1,13 @@
 import './app.scss';
-import {HeaderLanding} from "./components/header2/Header2"
+import React from 'react'
+
+const App = () => {
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
 
 
 
