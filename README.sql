@@ -43,3 +43,4 @@ lucro                decimal(5,2)
 );
 
 
+b
