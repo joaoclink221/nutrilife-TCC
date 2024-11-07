@@ -27,6 +27,14 @@ if(!isOpen) return null;
                   <option value="male">Masculino</option>
                 </select>
               </div>
+              <div className="sla">
+                <label htmlFor="name">telefone</label>
+                <input type="text" className="mimir" />
+              </div>
+              <div className="sla">
+                <label htmlFor="name">Email</label>
+                <input type="text" className="mimir" />
+              </div>
             </div>
           </div>
 
