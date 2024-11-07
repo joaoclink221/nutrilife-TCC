@@ -18,7 +18,7 @@ const Header2 = () => {
 
 export default Header2
 
-import React from 'react'
+
 
 export const HeaderLanding = () => {
   return (
