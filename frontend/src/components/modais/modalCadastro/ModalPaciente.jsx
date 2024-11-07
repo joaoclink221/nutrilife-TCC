@@ -18,7 +18,7 @@ if(!isOpen) return null;
               </div>
               <div className="sla">
                 <label htmlFor="date">Data de Nascimento</label>
-                <input type="date" className="loki" />
+                <input type="date" className="loki"/>
               </div>
               <div className="sla">
                 <label htmlFor="gender">Sexo</label>
@@ -38,19 +38,19 @@ if(!isOpen) return null;
               <div className="info-dieta">
                 <div className="sla">
                   <label>Cintura</label>
-                  <input type="text" className="noname" />
+                  <input type="text" className="noname" step="0.01"/>
                 </div>
                 <div className="sla">
                   <label>Quadril</label>
-                  <input type="text" className="noname" />
+                  <input type="text" className="noname" step="0.01"/>
                 </div>
                 <div className="sla">
                   <label>Altura</label>
-                  <input type="text" className="noname" />
+                  <input type="text" className="noname" step="0.01"/>
                 </div>
                 <div className="sla">
                   <label>Peso</label>
-                  <input type="text" className="noname" />
+                  <input type="text" className="noname" step="0.01"/>
                 </div>
               </div>
 

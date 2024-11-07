@@ -30,7 +30,7 @@ const ModalConsulta = ({isOpen, onClose}) => {
             </div>
             <div className="input-wrapper">
               <label htmlFor="name">Valor da consulta</label>
-              <input type="number" className="input-field" />
+              <input type="number" className="input-field" step="0.01"/>
             </div>
 
             <button className="hollow">Salvar</button>
