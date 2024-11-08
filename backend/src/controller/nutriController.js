@@ -34,9 +34,12 @@ endpoints.post("/login", async (req, resp) => {
 //cadastra pacientes
 endpoints.post("/CadastroPaciente", async (req, resp) => {
   try {
-    const {nome, data_nascimento, genero, telefone, email, situacao, cintura, quadril, peso, altura, descricao} = req.body;
+    const {nome_do_paciente,
+      data_consulta,
+      tipo_consulta,
+      valor} = req.body;
 
-    const userValido = await db.verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao);
+    const userValido = await db.verificarCadastroConsulta(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao);
 
     if(!userValido){
       return resp.status(400).send({

@@ -118,7 +118,7 @@ VALUES (
   return info.insertId;
 }
 
-
+//listar consulta
 export async function listarConsulta() {
   const comando = `
   SELECT * FROM tb_consultas;
@@ -128,49 +128,29 @@ export async function listarConsulta() {
   return linhas;
 }
 
-export async function verificarConsultas(
-  data_consulta,
-  tipo_consulta,
-  observacao
+export async function verificarCadastroConsulta(
+  nome_do_paciente,
+data_consulta,
+tipo_consulta,
+valor
 ) {
-  const comando = `
-    select  data_consulta, tipo_consulta, observacao
-    from tb_consultas
-    where data_consulta = ? AND  tipo_consulta = ? AND  observacao = ?;
-    `;
+  const comando = `SELECT COUNT(*) as count FROM tb_consultas WHERE nome_do_paciente = ?`;
 
-  const [linhas] = await con.query(comando, [
-    data_consulta,
-    tipo_consulta,
-    observacao,
-  ]);
+  const [linhas] = await con.query(comando, [email]);
 
-  return linhas.length > 0;
+  if (linhas[0].count > 0) {
+    return false;
+  }
+
+  if (
+    !nome_do_paciente|| !data_consulta|| !tipo_consulta|| !valor
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
-export async function verificarMedidasCorporais(
-  cintura,
-  quadril,
-  peso,
-  altura,
-  data_medida
-) {
-  const comando = `
-    select  cintura, quadril, peso, altura, data_medida
-    from tb_medidas_corporais
-    where cintura = ? AND  quadril = ? AND  peso = ? AND  altura = ? AND  data_medida = ?;
-    `;
-
-  const [linhas] = await con.query(comando, [
-    cintura,
-    quadril,
-    peso,
-    altura,
-    data_medida,
-  ]);
-
-  return linhas.length > 0;
-}
 
 export async function verificarFinanceiro(
   situacao,
