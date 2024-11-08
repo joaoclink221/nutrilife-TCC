@@ -1,10 +1,10 @@
 import mysql from "mysql2/promise.js"
 
 const con  = await mysql.createConnection({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PWD,
-    database: process.env.MYSQL_DB,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     typeCast: function(field, next){
         if(field.type === 'TINY' && field.length === 1){
             return(field.string()===1)

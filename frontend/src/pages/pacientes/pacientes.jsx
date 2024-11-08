@@ -27,6 +27,10 @@ const Pacientes = () => {
           <tr className='tren'>
             <th scope='col'>ID</th>
             <th scope='col'>Nome</th>
+            <th scope='col'>Data de nascimento</th>
+            <th scope='col'>Genero</th>
+            <th scope='col'>telefone</th>
+            <th scope='col'>Email</th>
             <th scope='col'>Situação</th>
             <th scope='col' className='col-buttons'></th>
           </tr>

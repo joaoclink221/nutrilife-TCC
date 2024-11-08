@@ -20,12 +20,12 @@ export async function cadastrarPaciente(paciente) {
     genero,
     telefone,
     email,
-    situaçao,
+    situacao,
     cintura,
     quadril,
     peso,
     altura,
-    Descrição
+    descricao
 ) 
 VALUES (
     ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
@@ -47,37 +47,45 @@ VALUES (
   let info = resposta[0];
   return info.insertId;
 }
-export async function verificarCadastroPaciente(
-  nome,
-  data_nascimento,
-  genero,
-  email,
-  telefone,
-  info_saude,
-  tipo_dieta,
-  data_inicio,
-  conclusao
-) {
+export async function listarPacientes() {
   const comando = `
-    select  nome, data_nascimento, sexo, email, telefone, info_saude, tipo_dieta, data_inicio, conclusao
-    from tb_cadastro_paciente
-    where nome = ? AND  data_nascimento = ? AND sexo = ? AND email = ? AND telefone = ? AND info_saude = ? AND tipo_dieta = ? AND data_inicio = ? AND conclusao = ?;
-    `;
+    SELECT 
+      id_paciente,
+      nome,
+      data_nascimento,
+      genero,
+      telefone,
+      email,
+      situacao,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      descricao
+    FROM 
+      tb_cadastro_paciente;
+  `;
 
-  const [linhas] = await con.query(comando, [
-    nome,
-    data_nascimento,
-    genero,
-    email,
-    telefone,
-    info_saude,
-    tipo_dieta,
-    data_inicio,
-    conclusao,
-  ]);
-
-  return linhas.length > 0;
+  const [linhas] = await con.query(comando);
+  return linhas;
 }
+
+export async function verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao) {
+  const comando = `SELECT COUNT(*) as count FROM tb_cadastro_paciente WHERE email = ?`;
+
+  const [linhas] = await con.query(comando, [email]);
+
+  if (linhas[0].count > 0) {
+    return false;
+  }
+
+  if (!nome || !data_nascimento || !genero || !telefone || !situacao || !cintura || !quadril || !peso || !altura || !descricao) {
+    return false;
+  }
+
+  return true;
+}
+
 
 export async function verificarConsultas(
   data_consulta,

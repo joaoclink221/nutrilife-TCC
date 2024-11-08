@@ -41,6 +41,3 @@ receita_mes            decimal(5,2),
 gasto                decimal(5,2),
 lucro                decimal(5,2)
 );
-
-
-b

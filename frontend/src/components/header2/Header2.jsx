@@ -6,13 +6,8 @@ const Header2 = () => {
         <div className="cable">
             {navigation.map((item) => (
                 <Link className="buttons" key={item.id} to={item.url}>
-
-
                     {item.title}
                     <span className="gradient-underline"></span>
-                
-                
-                
                 </Link>
             ))}
         </div>
