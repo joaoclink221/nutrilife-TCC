@@ -49,28 +49,26 @@ VALUES (
 }
 export async function listarPacientes() {
   const comando = `
-    SELECT 
-      id_paciente,
-      nome,
-      data_nascimento,
-      genero,
-      telefone,
-      email,
-      situacao,
-      cintura,
-      quadril,
-      peso,
-      altura,
-      descricao
-    FROM 
-      tb_cadastro_paciente;
+  SELECT * FROM tb_cadastro_paciente;
   `;
 
   const [linhas] = await con.query(comando);
   return linhas;
 }
 
-export async function verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao) {
+export async function verificarCadastroPaciente(
+  nome,
+  data_nascimento,
+  genero,
+  email,
+  telefone,
+  situacao,
+  cintura,
+  quadril,
+  peso,
+  altura,
+  descricao
+) {
   const comando = `SELECT COUNT(*) as count FROM tb_cadastro_paciente WHERE email = ?`;
 
   const [linhas] = await con.query(comando, [email]);
@@ -79,13 +77,56 @@ export async function verificarCadastroPaciente(nome, data_nascimento, genero, e
     return false;
   }
 
-  if (!nome || !data_nascimento || !genero || !telefone || !situacao || !cintura || !quadril || !peso || !altura || !descricao) {
+  if (
+    !nome ||
+    !data_nascimento ||
+    !genero ||
+    !telefone ||
+    !situacao ||
+    !cintura ||
+    !quadril ||
+    !peso ||
+    !altura ||
+    !descricao
+  ) {
     return false;
   }
 
   return true;
 }
 
+//cadastrar consulta
+export async function cadastrarConsulta(consulta) {
+  const comando = `
+  INSERT INTO tb_consultas (
+nome_do_paciente,
+data_consulta,
+tipo_consulta,
+valor
+) 
+VALUES (
+    ?, ?, ?, ?
+); `;
+
+  const resposta = await con.query(comando, [
+    consulta.nome_do_paciente,
+    consulta.data_consulta,
+    consulta.tipo_consulta,
+    consulta.valor
+  ]);
+  let info = resposta[0];
+  return info.insertId;
+}
+
+
+export async function listarConsulta() {
+  const comando = `
+  SELECT * FROM tb_consultas;
+  `;
+
+  const [linhas] = await con.query(comando);
+  return linhas;
+}
 
 export async function verificarConsultas(
   data_consulta,
