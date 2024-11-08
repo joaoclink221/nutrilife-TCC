@@ -1,17 +1,121 @@
-* {
-  margin: 0;
+.pai{
   background-color: #f5fff7;
 }
 
-.buttons{
-
+.filho{
   display: flex;
-  background-color: transparent;
-  border-radius: 51px;
-  border-color: #ffff;
+  justify-content: space-around;
+  font-size: 30px;
+  
+  .inicio {
+    background-color: transparent;
+    border: none;
+    font-family: 'glacial indifference';
+    font-size: 40px;
+    color:#025d00;
+  }
+
+  .sobre{
+    background-color: transparent;
+    border: none;
+    font-family: 'glacial indifference';
+    font-size: 40px;
+    color:#025d00;
+  }
+
+  .contato{
+    background-color: transparent;
+    border: none;
+    font-family: 'glacial indifference';
+    font-size: 40px;
+    color:#025d00;
+  }
+
+  .ajuda{
+    background-color: transparent;
+    border: none;
+    font-family: 'glacial indifference';
+    font-size: 40px;
+    color:#025d00;
+  }
+  
+  .artigos{ 
+    background-color: transparent;
+    border: none;
+    font-family: 'glacial indifference';
+    font-size: 40px;
+    color:#025d00;}
+  .login{
+    justify-content: end;
+    background-color: transparent;
+    border-radius: 50px;
+    padding:5px 40px 10px 40px;
+    border-color:#025d00 #0f8671;
+    margin-top: 15px;
+  }
 }
 
-h1{
+.welcome{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 260px;
+
+.titulo1{
   font-family: 'montserrat';
-  font-size: 80px;
+  color: #025d00;
+  font-size: 180px;
+}
+.text{
+  font-family: 'glacial indifference' ;
+  font-style: italic;
+  color: #025d00;
+  font-size: 60px;
+}}
+
+.Cads{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.titulo2{
+  font-family: "poppins";
+  color: #025d00;
+  font-size: 90px;
+  text-align: center;
+  margin-top: 130px;
+}
+
+.card1{
+  font-family: 'poppins';
+  font-size: 70px;
+  background-color: #b8ffc7;
+  border-radius: 45px;
+  border-color: #025d00;
+  width: 700px;
+}
+
+.card2{
+  font-family: 'poppins';
+  font-size: 70px;
+  background-color: #b8ffc7;
+  border-radius: 45px;
+  border-color: #025d00;
+}
+
+.card3{
+  font-family: 'poppins';
+  font-size: 70px;
+  background-color: #b8ffc7;
+  border-radius: 45px;
+  border-color: #025d00;
+}
+
+.card4{
+  font-family: 'poppins';
+  font-size: 70px;
+  background-color: #b8ffc7;
+  border-radius: 45px;
+  border-color: #025d00;
 }
