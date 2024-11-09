@@ -1,42 +1,46 @@
-CREATE DATABASE bd_nutrilife;
+create database bd_nutrilife;
 
-USE bd_nutrilife;
+use bd_nutrilife;
 
-CREATE TABLE tb_login (
-    email VARCHAR(200) PRIMARY KEY,
-    senha VARCHAR(20)
+create table tb_login(
+email                varchar(200),
+senha                varchar(20)
 );
 
-CREATE TABLE tb_cadastro_paciente (
-    id_paciente INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(200) NOT NULL, 
-    data_nascimento DATE NOT NULL,
-    genero VARCHAR(200) NOT NULL,
-    telefone VARCHAR(20) NOT NULL,
-    email VARCHAR(200) NOT NULL,
-    situacao VARCHAR(220) NOT NULL,
-    cintura DECIMAL(10,2) NOT NULL,
-    quadril DECIMAL(10,2) NOT NULL,
-    peso DECIMAL(10,2) NOT NULL,
-    altura DECIMAL(10,2) NOT NULL, 
-    descricao TEXT NOT NULL
+create table tb_cadastro_paciente(
+id_paciente                   INT AUTO_INCREMENT PRIMARY KEY,
+nome                 varchar(200) , 
+data_nascimento      DATE ,
+genero               varchar(200) ,
+telefone             varchar(20),
+email                varchar(200),
+situacao          varchar(220),
+cintura             decimal(10,2),
+quadril             decimal(10,2),
+peso                decimal(10,2),
+altura              decimal(10,2), 
+Descricao          text  
 );
 
-CREATE TABLE tb_consultas (
-    id_consulta INT AUTO_INCREMENT PRIMARY KEY,
-    id_paciente INT NOT NULL,
-    data_consulta DATETIME,
-    tipo_consulta VARCHAR(200) NOT NULL,
-    valor DECIMAL(10,2),
-    FOREIGN KEY (id_paciente) REFERENCES tb_cadastro_paciente(id_paciente)
+create table tb_consultas(
+id_consulta          INT AUTO_INCREMENT PRIMARY KEY,
+nome_do_paciente           int not null,
+data_consulta        DATETIME,
+tipo_consulta        varchar(200) not null,
+valor           decimal(10,2)
 );
 
-CREATE TABLE tb_financeiro (
-    id_despesa INT AUTO_INCREMENT PRIMARY KEY,
-    situacao BOOLEAN,
-    tipo_despesa TEXT,
-    valor DECIMAL(10,2),
-    receita_mes DECIMAL(10,2),
-    gasto DECIMAL(10,2),
-    lucro DECIMAL(10,2)
+
+
+create table tb_financeiro(
+id_despesa           INT AUTO_INCREMENT PRIMARY KEY,
+situacao            boolean,
+tipo_despesa        text,
+valor                decimal(5,2),
+receita_mes            decimal(5,2),
+gasto                decimal(5,2),
+lucro                decimal(5,2)
 );
+
+
+

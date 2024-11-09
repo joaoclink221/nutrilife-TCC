@@ -95,30 +95,68 @@ export async function verificarCadastroPaciente(
   return true;
 }
 
-//cadastrar consulta
-export async function cadastrarConsulta(consulta) {
-  const comando = `
-  INSERT INTO tb_consultas (
-nome_do_paciente,
-data_consulta,
-tipo_consulta,
-valor
-) 
-VALUES (
-    ?, ?, ?, ?
-); `;
+export async function cadastrarConsulta({
+  nome_do_paciente,
+  data_consulta,
+  tipo_consulta,
+  valor,
+}) {
+  try {
+    const comando = `
+      INSERT INTO tb_consultas (nome_do_paciente, data_consulta, tipo_consulta, valor)
+      VALUES (?, ?, ?, ?)
+    `;
 
-  const resposta = await con.query(comando, [
-    consulta.nome_do_paciente,
-    consulta.data_consulta,
-    consulta.tipo_consulta,
-    consulta.valor
-  ]);
-  let info = resposta[0];
-  return info.insertId;
+    const [result] = await con.query(comando, [
+      nome_do_paciente,
+      data_consulta,
+      tipo_consulta,
+      valor,
+    ]);
+
+    console.log("Consulta cadastrada com sucesso! ID:", result.insertId);
+
+    return result.insertId;
+  } catch (err) {
+    throw new Error("Erro ao cadastrar consulta. Tente novamente mais tarde.");
+  }
 }
 
-//listar consulta
+export async function verificarCadastroConsulta(
+  nome_do_paciente,
+  data_consulta,
+  tipo_consulta,
+  valor
+) {
+  try {
+    if (!nome_do_paciente || !data_consulta || !tipo_consulta || !valor) {
+      return { valid: false, message: "Todos os campos são obrigatórios." };
+    }
+
+    const comando = `SELECT COUNT(*) as count FROM tb_consultas WHERE nome_do_paciente = ? AND data_consulta = ?`;
+
+    const [linhas] = await con.query(comando, [
+      nome_do_paciente,
+      data_consulta,
+    ]);
+
+    if (linhas[0].count > 0) {
+      return {
+        valid: false,
+        message: "O paciente já tem uma consulta agendada para esta data.",
+      };
+    }
+
+    return { valid: true };
+  } catch (err) {
+    return {
+      valid: false,
+      message: "Erro ao verificar consulta. Tente novamente mais tarde.",
+    };
+  }
+}
+
+
 export async function listarConsulta() {
   const comando = `
   SELECT * FROM tb_consultas;
@@ -127,30 +165,6 @@ export async function listarConsulta() {
   const [linhas] = await con.query(comando);
   return linhas;
 }
-
-export async function verificarCadastroConsulta(
-  nome_do_paciente,
-data_consulta,
-tipo_consulta,
-valor
-) {
-  const comando = `SELECT COUNT(*) as count FROM tb_consultas WHERE nome_do_paciente = ?`;
-
-  const [linhas] = await con.query(comando, [email]);
-
-  if (linhas[0].count > 0) {
-    return false;
-  }
-
-  if (
-    !nome_do_paciente|| !data_consulta|| !tipo_consulta|| !valor
-  ) {
-    return false;
-  }
-
-  return true;
-}
-
 
 export async function verificarFinanceiro(
   situacao,

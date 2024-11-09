@@ -34,12 +34,9 @@ endpoints.post("/login", async (req, resp) => {
 //cadastra pacientes
 endpoints.post("/CadastroPaciente", async (req, resp) => {
   try {
-    const {nome_do_paciente,
-      data_consulta,
-      tipo_consulta,
-      valor} = req.body;
+    const {nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao} = req.body;
 
-    const userValido = await db.verificarCadastroConsulta(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao);
+    const userValido = await db.verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao);
 
     if(!userValido){
       return resp.status(400).send({
@@ -93,26 +90,29 @@ endpoints.get("/listaPaciente", async (req, resp) => {
 
 endpoints.post("/CadastroConsulta", async (req, resp) => {
   try {
-    const {nome_do_paciente,
-      data_consulta,
-      tipo_consulta,
-      valor} = req.body;
 
-    const userValido = await db.verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao);
 
-    if(!userValido){
+    const { nome_do_paciente, data_consulta, tipo_consulta, valor } = req.body;
+
+
+    const verificaCadastro = await db.verificarCadastroConsulta(nome_do_paciente, data_consulta, tipo_consulta, valor);
+
+    if (!verificaCadastro.valid) {
+      
       return resp.status(400).send({
-        message: "Erro no cadastro: O email já está cadastrado ou algum dado está incorreto."
-      })
+        message: verificaCadastro.message
+      });
     }
-    const pacienteId = await db.cadastrarPaciente({nome, data_nascimento, genero, email, telefone, situacao, cintura, quadril, peso, altura, descricao});
 
+    const consultaId = await db.cadastrarConsulta({ nome_do_paciente, data_consulta, tipo_consulta, valor });
+
+    
     return resp.status(201).send({
       message: "Cadastro bem sucedido",
-      id_paciente: pacienteId
-    })
+      id_consulta: consultaId
+    });
+
   } catch (err) {
-    console.error("Erro no cadastro:", err);
     resp.status(500).send({
       erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`
     });
@@ -123,21 +123,26 @@ endpoints.post("/CadastroConsulta", async (req, resp) => {
 
 
 
-//listar consultas
+
+
+
+
 endpoints.get("/consultas", async (req, resp) => {
   try {
     const consulta = await db.listarConsulta();
 
     if (consulta.length === 0) {
       return resp.status(404).send({
-        message: "Nenhuma consulta encontrada."
+        message: "Nenhuma consulta encontrada.",
+        
       });
+    }else {
     }
 
     
     return resp.status(200).send({
       message: "consultas encontradas com sucesso.",
-      pacientes
+      consulta
     });
 
   } catch (err) {
