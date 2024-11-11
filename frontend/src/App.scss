@@ -1,121 +1,203 @@
-.pai{
+.pai {
   background-color: #f5fff7;
 }
 
-.filho{
+
+.filho {
   display: flex;
   justify-content: space-around;
   font-size: 30px;
-  
+
+
   .inicio {
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
     font-size: 40px;
-    color:#025d00;
+    color: #025d00;
+    margin-top: 20px;
   }
 
-  .sobre{
+  .sobre {
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
     font-size: 40px;
-    color:#025d00;
+    color: #025d00;
+    margin-top: 20px;
+
   }
 
-  .contato{
+  .contato {
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
     font-size: 40px;
-    color:#025d00;
+    color: #025d00;
+    margin-top: 20px;
+
   }
 
-  .ajuda{
+  .ajuda {
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
     font-size: 40px;
-    color:#025d00;
+    color: #025d00;
+    margin-top: 20px;
+
   }
-  
-  .artigos{ 
+
+  .artigos {
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
     font-size: 40px;
-    color:#025d00;}
-  .login{
+    color: #025d00;
+    margin-top: 20px;
+  }
+
+  .login {
     justify-content: end;
     background-color: transparent;
     border-radius: 50px;
-    padding:5px 40px 10px 40px;
-    border-color:#025d00 #0f8671;
-    margin-top: 15px;
+    padding: 5px 40px 10px 40px;
+    border-color: #025d00 #0f8671;
+    margin-top: 30px;
+    color: #025d00;
   }
 }
 
-.welcome{
+.welcome {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 260px;
+  margin-top: 490px;
 
-.titulo1{
-  font-family: 'montserrat';
-  color: #025d00;
-  font-size: 180px;
-}
-.text{
-  font-family: 'glacial indifference' ;
-  font-style: italic;
-  color: #025d00;
-  font-size: 60px;
-}}
+  .titulo1 {
+    font-family: 'montserrat';
+    color: #025d00;
+    font-size: 180px;
+  }
 
-.Cads{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  .text {
+    font-family: 'glacial indifference';
+    font-style: italic;
+    color: #025d00;
+    font-size: 60px;
+  }
 }
 
-.titulo2{
+.titulo2 {
   font-family: "poppins";
   color: #025d00;
   font-size: 90px;
   text-align: center;
-  margin-top: 130px;
+  margin-top: 430px;
 }
 
-.card1{
-  font-family: 'poppins';
-  font-size: 70px;
-  background-color: #b8ffc7;
-  border-radius: 45px;
-  border-color: #025d00;
-  width: 700px;
+.Cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 190px;
+  justify-content: space-around;
+  gap: 90px;
 }
 
-.card2{
+
+
+.card1 {
   font-family: 'poppins';
-  font-size: 70px;
+  font-size: 52px;
   background-color: #b8ffc7;
   border-radius: 45px;
-  border-color: #025d00;
+  border-color: #025d00 #0f8671;
+  width: 490px;
+  text-align: center;
+  padding: 70px 10px 60px;
+  border: 2px solid #068304;
+
 }
 
-.card3{
+.card2 {
   font-family: 'poppins';
-  font-size: 70px;
+  font-size: 52px;
   background-color: #b8ffc7;
   border-radius: 45px;
-  border-color: #025d00;
+  border-color: #025d00 #0f8671;
+  width: 490px;
+  text-align: center;
+  padding: 70px 10px 60px;
+  border: 2px solid #068304;
 }
 
-.card4{
+.card3 {
   font-family: 'poppins';
-  font-size: 70px;
+  font-size: 52px;
   background-color: #b8ffc7;
   border-radius: 45px;
-  border-color: #025d00;
+  border-color: #025d00 #0f8671;
+  width: 490px;
+  text-align: center;
+  padding: 70px 10px 60px;
+  border: 2px solid #068304;
 }
+
+.card4 {
+  font-family: 'poppins';
+  font-size: 50px;
+  background-color: #b8ffc7;
+  border-radius: 45px;
+  border-color: #025d00 #0f8671;
+  width: 490px;
+  text-align: center;
+  padding: 70px 10px 60px;
+  border: 2px solid #068304;
+}
+
+.section3{
+  padding-top: 200px;
+  margin: 100px;
+  display: flex;
+  flex-wrap: wrap;
+
+  img{
+    border-radius: 950px;
+    align-self: flex-end;
+    width: 500px;
+  }
+}
+
+.titulo3{
+  display: flex;
+  font-family: 'montserrat';
+  font-size: 100px;
+  color: #025d00;
+  width: 1100px;
+  padding-left: 150px;
+  padding-top: 150px;
+}
+
+
+.texto{
+  padding-bottom: 60px;
+  padding-top: 80px;
+  font-family: 'poppins';
+  font-size: 54px;
+  color: #013000;
+}
+
+.agendar{
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 5px 40px 10px 40px;
+  border-color: #025d00 #0f8671;
+  margin-top: 30px;
+  font-size: 50px;
+  color: #025d00;
+  margin-left: 600px;
+  
+}
+
