@@ -1,0 +1,107 @@
+/* Sobreposição do modal para cobrir a tela inteira */
+.overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Escurecimento do fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Caixa de conteúdo do modal */
+  .popup-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 90vh;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #6ae089 #e0e0e0;
+  }
+  .popup-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  .popup-box::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 8px;
+  }
+  .popup-box::-webkit-scrollbar-thumb {
+    background-color: #6ae089;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+  }
+  .popup-box::-webkit-scrollbar-thumb:hover {
+    background-color: #4db86b;
+  }
+  
+  /* Botão de fechar */
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Estilo do formulário */
+  #finance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre as seções */
+  }
+  
+  /* Seção principal */
+  .section-primary {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .primary-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .checkbox-field {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .input-field {
+    width: 100%;
+    height: 2.5rem;
+    border: 2px solid #6ae089;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 1rem;
+  }
+  
+  .hollow {
+    width: 100%;
+    height: 3rem;
+    background-color: #6ae089a2;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .hollow:hover {
+    background-color: #4db86b;
+  }
+  

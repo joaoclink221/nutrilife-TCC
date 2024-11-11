@@ -1,23 +1,23 @@
 import './Financeiro.scss';
 import Header2 from "../../components/header2/Header2.jsx"
-import {ArrowUp} from "lucide-react"
+import { ArrowUp } from "lucide-react"
+import { ArrowDown } from "lucide-react"
+import { HandCoins } from "lucide-react"
+import { ThumbsUp } from "lucide-react"
+import { PlusIcon } from "lucide-react"
+
 
 const Financeiro = () => {
   return (
     <div className='vô-financeiro'>
       <Header2 />
-      <div className='lateral-direita'>
-        <div className='perfil'>
-        </div>
-        <div className='botoes'>
-
-        </div>
-
-      </div>
 
       <div className="pai-financeiro">
-        <h2>Financeiro</h2>
-        <h1>Setembro</h1>
+
+        <button className='circleModal'>
+          <PlusIcon className="iconM" />
+        </button>
+
         <div className='tabela'>
           <table className="table table hover">
             <thead>
@@ -30,7 +30,7 @@ const Financeiro = () => {
             </thead>
             <tbody>
               <tr className='tren'>
-                <td scope='col'>positivo</td>
+                <td scope='col'><ThumbsUp className="icon1" /></td>
                 <td scope='col'>conta de luz</td>
                 <td scope='col'>800,9</td>
               </tr>
@@ -38,38 +38,37 @@ const Financeiro = () => {
           </table>
         </div>
 
-        <div className='lateral-direita'>
-        <div className='perfil'>
-        
-        </div>
-        <div className='botoes'>
+        <div className='botton'>
 
         </div>
-
-      </div>
 
         <div className='tabela2'>
+
+          <div className='circle'>
+            <ArrowUp className="icon" />
+          </div>
+
           <table className="tabela3">
             <thead>
               <tr className='tren1'>
                 <th scope='col'>Receita do mês</th>
                 <th scope='col' className='col-buttons'></th>
               </tr>
-              <div className='circle'>
-              <ArrowUp className="icon"/>
-              </div>
             </thead>
 
             <tbody>
               <tr className='tren'>
                 <td scope='col'>800,90</td>
-                
+
               </tr>
             </tbody>
           </table>
         </div>
 
         <div className='tabela2'>
+          <div className='circle2'>
+            <ArrowDown className="icon" />
+          </div>
           <table className="tabela3">
             <thead>
               <tr className='tren1'>
@@ -86,6 +85,9 @@ const Financeiro = () => {
         </div>
 
         <div className='tabela2'>
+          <div className='circle3'>
+            <HandCoins className="icon" />
+          </div>
           <table className="tabela3">
             <thead>
               <tr className='tren1'>

@@ -3,41 +3,91 @@
 
 }
 
+.tren1{
+margin: 200px;
+}
+
 .tabela{
     height: 400px;
     width: 780px;
-    background: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
-    box-shadow: 0 0 10px; 
+    border: solid 3px rgba(192, 190, 190, 0.911);
     float: left;
     backdrop-filter: blur(30px);
-    color:#146e0f;
     border-radius: 10px;
     padding: 30px 90px;
+    
     }
 
 
 .tabela2{
     height: 180px;
     width: 380px;
-    background: transparent;
-    border: 2px solid rgb(255, 255, 255, .2);
-    box-shadow: 0 0 10px; 
+    background: rgba(223, 222, 222, 0.911);
     backdrop-filter: blur(30px);
-    color:#146e0f;
     border-radius: 10px;
     padding: 30px 90px;
     float: right;
     margin-top: 20px;
 }
+
+
+
+.circleModal{
+    border: solid 2px #287c24;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1140px;
+}
     
 .circle{
-    background-color: aqua;
+    background-color:#7ed957;
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle2{
+    background-color:#d95757;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle3{
+    background-color:#146e0f;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon{
     background: transparent;
+    color: black;
+}
+
+.icon1{
+    background: transparent;
+    color: #35b100dc;
+}
+
+.iconM{
+    background: transparent;
+    color:#287c24
 }
