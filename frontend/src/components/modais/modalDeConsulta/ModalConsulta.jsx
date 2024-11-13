@@ -1,7 +1,19 @@
+import { useState } from "react";
 import "./ModalConsulta.scss"
 
-const ModalConsulta = ({isOpen, onClose}) => {
+function ModalConsulta ({isOpen, onClose}){
+  const [nomePaciente, setNomePaciente]  = useState("")
+  const [valorConsulta, setValorConsulta]  = useState("")
+  const [tipoConsulta, setTipoConsulta]  = useState("")
+  const [dataConsulta, setDataConsulta]  = useState("")
   if(!isOpen) return null;
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    const consultaData = {
+      
+    }
+  }
   return (
     <div>
   <div className="overlay-container">
@@ -23,10 +35,7 @@ const ModalConsulta = ({isOpen, onClose}) => {
             </div>
             <div className="input-wrapper">
               <label htmlFor="gender">Tipo de Consulta</label>
-              <select id="gender" className="dropdown-select">
-                <option value="female">Presencial</option>
-                <option value="male">Online</option>
-              </select>
+              <input type="text" className="input-field" />
             </div>
             <div className="input-wrapper">
               <label htmlFor="name">Valor da consulta</label>

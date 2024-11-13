@@ -134,24 +134,19 @@ endpoints.get("/consultas", async (req, resp) => {
     if (consulta.length === 0) {
       return resp.status(404).send({
         message: "Nenhuma consulta encontrada.",
-        
       });
-    }else {
     }
 
-    
-    return resp.status(200).send({
-      message: "consultas encontradas com sucesso.",
-      consulta
-    });
+    return resp.status(200).send(consulta);
 
   } catch (err) {
-    console.error("Erro ao listar pacientes:", err);
+    console.error("Erro ao listar consultas:", err);
     resp.status(500).send({
       erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`
     });
   }
 });
+
 
 
 

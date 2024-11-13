@@ -1,10 +1,25 @@
 import './agenda.scss';
 import { Link } from 'react-router-dom';
 import Header2 from "../../components/header2/Header2.jsx"
-import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx" 
-import { useState } from 'react';
+import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx"
+import { useState, useEffect } from 'react';
+import axios from "axios"
 export default function Agenda() {
-  const [isModalOpen,  setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [consultas, setConsultas] = useState([]);
+  const [erro, setErro] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:5010/consultas")
+      .then(Response => {
+        setConsultas(Response.data)
+        setErro(null)
+      })
+      .catch(error => {
+        console.error("erro ao buscar consultas:", error);
+        setErro("erro ao buscar consulta. tente novamente mais tarde")
+      });
+  }, []);
   return (
     <div className='odin'>
       <Header2 />
@@ -16,7 +31,7 @@ export default function Agenda() {
               Novo Agendamento
             </button>
           </Link>
-          <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
+          <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
         <div className='filter'>
           <input id='startDate'
@@ -33,26 +48,33 @@ export default function Agenda() {
         </div>
       </div>
 
-      <table className="table table-hover">
-        <thead>
-          <tr className='tren'>
-            <th scope='col'>Paciente</th>
-            <th scope='col'>serviço</th>
-            <th scope='col'>Data/Hora</th>
-            <th scope='col'>valor</th>
-            <th scope='col' className='col-buttons'></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className='tren'>
-            <td scope='col'>João</td>
-            <td scope='col'>Consulta</td>
-            <td scope='col'>01-11-2024 16:00h</td>
-            <td scope='col' className='col-buttons'>R$300</td>
-            <td scope='col'>XX XX</td>
-          </tr>
-        </tbody>
-      </table>
+      {erro && <p style = {{color:'red'}}>{erro}</p>}
+
+      
+      {consultas.length > 0 ? (
+        <table className="table table-hover">
+          <thead>
+            <tr className='tren'>
+              <th scope='col'>Paciente</th>
+              <th scope='col'>Serviço</th>
+              <th scope='col'>Data/Hora</th>
+              <th scope='col'>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {consultas.map((consulta, index) => (
+              <tr key={index} className='tren'>
+                <td scope='col'>{consulta.nome_do_paciente}</td>
+                <td scope='col'>{consulta.tipo_consulta}</td>
+                <td scope='col'>{consulta.data_consulta}</td>
+                <td scope='col' className='col-buttons'>{consulta.valor}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        !erro && <p>Nenhuma consulta encontrada.</p>
+      )}
     </div>
   )
 }
