@@ -11,7 +11,10 @@ function ModalConsulta ({isOpen, onClose}){
   const handleSubmit = (event) =>{
     event.preventDefault();
     const consultaData = {
-      
+      nomePaciente,
+      valorConsulta,
+      tipoConsulta,
+      dataConsulta
     }
   }
   return (
