@@ -24,9 +24,9 @@ Descricao          text
 
 create table tb_consultas(
 id_consulta          INT AUTO_INCREMENT PRIMARY KEY,
-nome_do_paciente           int not null,
+nome_do_paciente           text,
 data_consulta        DATETIME,
-tipo_consulta        varchar(200) not null,
+tipo_consulta        varchar(200),
 valor           decimal(10,2)
 );
 
