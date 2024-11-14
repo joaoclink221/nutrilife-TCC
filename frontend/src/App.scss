@@ -13,7 +13,7 @@
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
-    font-size: 40px;
+    font-size: 32px;
     color: #025d00;
     margin-top: 20px;
   }
@@ -22,7 +22,7 @@
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
-    font-size: 40px;
+    font-size: 32px;
     color: #025d00;
     margin-top: 20px;
 
@@ -32,7 +32,7 @@
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
-    font-size: 40px;
+    font-size: 32px;
     color: #025d00;
     margin-top: 20px;
 
@@ -42,7 +42,7 @@
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
-    font-size: 40px;
+    font-size: 32px;
     color: #025d00;
     margin-top: 20px;
 
@@ -52,7 +52,7 @@
     background-color: transparent;
     border: none;
     font-family: 'glacial indifference';
-    font-size: 40px;
+    font-size: 32px;
     color: #025d00;
     margin-top: 20px;
   }
@@ -161,18 +161,18 @@
   margin: 100px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 
   img{
     border-radius: 950px;
-    align-self: flex-end;
-    width: 500px;
+    width: 400px;
   }
 }
 
 .titulo3{
   display: flex;
   font-family: 'montserrat';
-  font-size: 100px;
+  font-size: 80px;
   color: #025d00;
   width: 1100px;
   padding-left: 150px;
@@ -184,7 +184,7 @@
   padding-bottom: 60px;
   padding-top: 80px;
   font-family: 'poppins';
-  font-size: 54px;
+  font-size: 45px;
   color: #013000;
 }
 
@@ -195,9 +195,68 @@
   padding: 5px 40px 10px 40px;
   border-color: #025d00 #0f8671;
   margin-top: 30px;
-  font-size: 50px;
+  font-size: 40px;
   color: #025d00;
-  margin-left: 600px;
+  margin-left: 350px;
   
 }
 
+.ebook{
+  justify-content: end;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 5px 40px 10px 40px;
+  border-color: #025d00 #0f8671;
+  margin-top: 30px;
+  color: #025d00;
+}
+
+.titulo4{
+  display: flex;
+  font-family: 'montserrat';
+  font-size: 80px;
+  color: #025d00;
+  width: 1100px;
+  padding-left: 150px;
+  padding-top: 150px;
+}
+
+.texto4{
+  padding-bottom: 60px;
+  padding-top: 80px;
+  font-family: 'poppins';
+  font-size: 45px;
+  color: #013000;
+}
+
+.section4{
+  .livro{
+  width: 10px;
+}}
+
+.titulo5{
+  display: flex;
+  font-family: 'montserrat';
+  font-size: 80px;
+  color: #025d00;
+  width: 1100px;
+  padding-left: 150px;
+  padding-top: 150px;
+}
+
+.texto5{
+  padding-bottom: 60px;
+  padding-top: 80px;
+  font-family: 'poppins';
+  font-size: 45px;
+  color: #013000;
+}
+
+.section5{
+  display: flex;
+
+  .nutri{
+    width: 20px;
+    border-radius: 100px;
+  }
+}

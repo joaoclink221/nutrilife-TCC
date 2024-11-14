@@ -46,6 +46,22 @@ export const App = () => {
         <button className='agendar'>Agendar Consulta</button>
       </div>
 
+      <div className='section4'>
+        <img src="\src\assets\image\Inserir um título.png" alt="livro" />
+        <h1 className='titulo4'>OBTENHA O LIVRO ESCRITO POR CRISTINA MIRANDA</h1>
+        <p className='texto4'>Baseado em Trabalho de Conclusão de Curso, editado e melhorado, Cristina Miranda disserta sobre o problema causado pelas redes sociais em relação as redes sociais, com suas dietas mirabolantes sem entender os conceitos base da nutrição. </p>
+
+        <button className='ebook'>Obter E-Book</button>
+      </div>
+
+      <div className='section5'>
+
+        <h1 className='titulo5'>UM POUCO SOBRE MIM</h1>
+        <p className='texto5'>
+        Sou nutricionista formada pela Universidade de Harvard e mestre em Nutrição Esportiva pela Universidade de Oxford. Durante meus estudos, aprofundei meu conhecimento em nutrição clínica e esportiva, com foco em dietas personalizadas e desempenho atlético. Continuo me atualizando constantemente para oferecer o melhor suporte a meus clientes na busca por saúde e bem-estar.
+        </p>
+        <img src="\src\assets\image\nutricionista.jpg" alt="nutri" />
+      </div>
     </div>
   )
 }
