@@ -91,7 +91,7 @@ export default function Agenda() {
                 <td scope='col'>{consulta.id_consulta}</td>
                 <td scope='col'>{consulta.nome_do_paciente}</td>
                 <td scope='col'>{consulta.tipo_consulta}</td>
-                <td scope='col'>{consulta.data_consulta}</td>
+                <td scope='col'>{consulta.data_consulta.replace('T', ' ').replace('Z', ' ').replaceAll('-', '/').slice(0, 16)}</td>
                 <td scope='col' className='col-buttons'>R${consulta.valor}</td>
                 <td scope='col' className='col-buttons'>
                   <button onClick={() => editarConsulta(consulta)} className='bnt-editar'>

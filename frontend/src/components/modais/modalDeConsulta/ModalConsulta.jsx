@@ -15,7 +15,7 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       setNomePaciente(consultaEditando.nome_do_paciente);
       setValorConsulta(consultaEditando.valor);
       setTipoConsulta(consultaEditando.tipo_consulta);
-      setDataConsulta(consultaEditando.data_consulta);
+      setDataConsulta(consultaEditando.data_consulta.slice(0, 16));
     } else{
       setNomePaciente("");
       setValorConsulta("");
@@ -44,15 +44,18 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       };
 
       if(consultaEditando){
+        console.log(consultaEditando)
         const resposta = await axios.put(`http://localhost:5010/AtualizarConsulta/${consultaEditando.id_consulta}`, dados)
         setMensagem(`consulta editada com sucesso! ID:${resposta.data}`)
       } else{
+        console.log(dataConsulta);
+        
         const resposta = await axios.post("http://localhost:5010/CadastroConsulta", dados);
         setMensagem(`Consulta registrada com sucesso! ID: ${resposta.data}`);
         setNomePaciente("");
-      setDataConsulta("");
-      setTipoConsulta("");
-      setValorConsulta("");
+        setDataConsulta("");
+        setTipoConsulta("");
+        setValorConsulta("");
       }
   
       console.log("Dados enviados:", dados);

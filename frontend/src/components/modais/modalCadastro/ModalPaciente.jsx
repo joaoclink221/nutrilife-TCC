@@ -1,7 +1,15 @@
+import { useState } from "react";
 import "./ModalPaciente.scss"
 const ModalPaciente = ({isOpen, onClose}) => {
-    
-if(!isOpen) return null;
+  const [nome, setNome] = useState('')
+  const [dataNascimento, setDataNascimento] = useState('')
+  const [ genero, setGenero] = useState('')
+  const [ telefone, setTelefone] = useState('')
+  const [ email, setEmail] = useState('')
+  
+  
+  if(!isOpen) return null;
+
     return (
         <div className="modal-overlay">
       <div className="modal-content">

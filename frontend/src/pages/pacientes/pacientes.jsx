@@ -10,7 +10,7 @@ function Pacientes() {
   const [erro, setErro] = useState(null)
 
   useEffect(() => {
-    axios.get("http://localhost:5010/")
+    axios.get("http://localhost:5010/listaPaciente")
       .then(Response => {
         setPacientes(Response.data)
         setErro(null)
@@ -19,7 +19,7 @@ function Pacientes() {
         console.error("erro ao buscar consultas:", error);
         setErro("erro ao buscar consulta. tente novamente mais tarde")
       });
-  }, []);
+  }, [pacientes]);
   return (
     <div>
       <Header2 />
