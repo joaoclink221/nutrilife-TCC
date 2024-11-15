@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ModalConsulta.scss";
 import axios from "axios";
 
 
-function ModalConsulta({ isOpen, onClose }) {
+function ModalConsulta({ isOpen, onClose, consultaEditando }) {
   const [nomePaciente, setNomePaciente] = useState("");
   const [valorConsulta, setValorConsulta] = useState();
   const [tipoConsulta, setTipoConsulta] = useState("");
   const [dataConsulta, setDataConsulta] = useState("");
   const [mensagem, setMensagem] = useState("");
+
+  useEffect(() =>{
+    if(consultaEditando){
+      setNomePaciente(consultaEditando.nome_do_paciente);
+      setValorConsulta(consultaEditando.valor);
+      setTipoConsulta(consultaEditando.tipo_consulta);
+      setDataConsulta(consultaEditando.data_consulta);
+    } else{
+      setNomePaciente("");
+      setValorConsulta("");
+      setTipoConsulta("");
+      setDataConsulta("");
+    }
+  }, [consultaEditando, isOpen])
 
   if (!isOpen) return null;
 
@@ -28,16 +42,23 @@ function ModalConsulta({ isOpen, onClose }) {
         tipo_consulta: tipoConsulta,
         valor: parseFloat(valorConsulta), 
       };
-  
-      console.log("Dados enviados:", dados);
-  
-      const resposta = await axios.post("http://localhost:5010/CadastroConsulta", dados);
-  
-      setMensagem(`Consulta registrada com sucesso! ID: ${resposta.data}`);
-      setNomePaciente("");
+
+      if(consultaEditando){
+        const resposta = await axios.put(`http://localhost:5010/AtualizarConsulta/${consultaEditando.id_consulta}`, dados)
+        setMensagem(`consulta editada com sucesso! ID:${resposta.data}`)
+      } else{
+        const resposta = await axios.post("http://localhost:5010/CadastroConsulta", dados);
+        setMensagem(`Consulta registrada com sucesso! ID: ${resposta.data}`);
+        setNomePaciente("");
       setDataConsulta("");
       setTipoConsulta("");
       setValorConsulta("");
+      }
+  
+      console.log("Dados enviados:", dados);
+  
+      
+      
     } catch (erro) {
       console.error("Erro ao registrar consulta:", erro.response?.data);
       setMensagem(erro.response?.data?.erro || "Erro ao conectar com o servidor.");
@@ -54,7 +75,7 @@ function ModalConsulta({ isOpen, onClose }) {
           </button>
           <form onSubmit={register} id="user-form">
             <div className="section-primary">
-              <h1>Agendamento de consulta</h1>
+              <h1>{consultaEditando ? "Editar Consulta" : "Agendamento de Consulta"}</h1>
               <div className="primary-group">
                 <div className="input-wrapper">
                   <label htmlFor="name">Nome completo do paciente</label>
@@ -94,7 +115,7 @@ function ModalConsulta({ isOpen, onClose }) {
                   />
                 </div>
                 <button className="hollow" type="submit">
-                  Salvar
+                {consultaEditando ? "Atualizar" : "Salvar"}
                 </button>
               </div>
               {mensagem && <p>{mensagem}</p>}
