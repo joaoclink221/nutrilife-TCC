@@ -157,6 +157,7 @@ export async function verificarCadastroConsulta(
 }
 
 
+
 export async function listarConsulta() {
   const comando = `
   SELECT * FROM tb_consultas;
@@ -165,6 +166,49 @@ export async function listarConsulta() {
   const [linhas] = await con.query(comando);
   return linhas;
 }
+
+
+export async function atualizarConsultas(id_consulta, { nome_do_paciente, data_consulta, tipo_consulta, valor }){
+  try {
+    const comando = `
+    update tb_consultas
+    set nome_do_paciente = ?, data_consulta = ?, tipo_consulta = ?, valor = ?
+    WHERE id_consulta = ?`;
+
+    const [resultado] = await con.query(comando, [nome_do_paciente, data_consulta, tipo_consulta, valor, id_consulta])
+
+    if(resultado.affectedRows > 0){
+      return { message: "consulta atualizada com sucesso!"};
+    } else{
+      return{message: "consulta nn encontrada"}
+    }
+
+  } catch (err) {
+    throw new Error("erro ao atualizar consulta: " + err.message)
+  }
+}
+
+
+
+
+
+export async function excluirConsulta(id_consulta){
+  try{
+    const comando  = "delete from tb_consultas WHERE id_consulta = ?";
+    const [resultado] = await con.query(comando, [id_consulta]);
+
+    if (resultado.affectedRows > 0) {
+      return { message: "Consulta excluída com sucesso!" };
+    } else {
+      return { message: "Consulta não encontrada." };
+    }
+  } catch (err) {
+    throw new Error("Erro ao excluir consulta: " + err.message);
+  }
+}
+
+
+
 
 export async function verificarFinanceiro(
   situacao,
@@ -191,3 +235,5 @@ export async function verificarFinanceiro(
 
   return linhas.length > 0;
 }
+
+

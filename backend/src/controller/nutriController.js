@@ -151,6 +151,33 @@ endpoints.get("/consultas", async (req, resp) => {
 
 
 
+endpoints.delete("/excluirConsultas/:id", async (req,resp) =>{
+  try {
+    const{id} = req.params
+    const resultado = await db.excluirConsulta(id)
+    return resp.status(200).send({ message: resultado.message})
+  } catch (err) {
+    return resp.status(500).send({ erro: `Erro ao excluir consulta: ${err.message}` })
+  }
+})
+
+
+
+
+
+endpoints.put("/atualizarConsulta/:id", async (req,resp) =>{
+  try {
+    const { id } = req.params;
+    const { nome_do_paciente, data_consulta, tipo_consulta, valor } = req.body;
+
+    const resultado = await db.atualizarConsultas(id,{ nome_do_paciente, data_consulta, tipo_consulta, valor })
+
+    return resp.status(200).send({ message: resultado.message });
+  } catch (err) {
+    return resp.status(500).send({ erro: `Erro ao atualizar consulta: ${err.message}` });
+  }
+})
+
 
 
 endpoints.post("/financeiro", async (req, resp) => {

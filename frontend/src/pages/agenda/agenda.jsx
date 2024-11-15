@@ -4,22 +4,44 @@ import Header2 from "../../components/header2/Header2.jsx"
 import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx"
 import { useState, useEffect } from 'react';
 import axios from "axios"
+import {FilePenLine, Trash} from "lucide-react"
 export default function Agenda() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [consultas, setConsultas] = useState([]);
   const [erro, setErro] = useState(null);
+  const [consultaEditando, setConsultaEditando] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5010/listaPaciente")
+    axios.get("http://localhost:5010/consultas")
       .then(Response => {
         setConsultas(Response.data)
         setErro(null)
       })
       .catch(error => {
         console.error("erro ao buscar consultas:", error);
-        setErro("erro ao buscar consulta. tente novamente mais tarde")
+
+        if(consultas.length == 0){setErro("nenhuma consulta encontrada")}
+        else {setErro("erro ao buscar consulta. tente novamente mais tarde")}
+        
       });
-  }, []);
+  }, [consultas]);
+
+
+  const excluirConsulta = async (id) =>{
+    try {
+      const resposta = await axios.delete(`http://localhost:5010/excluirConsultas/${id}`);
+      alert(resposta.data.message);
+      setConsultas(consultas.filter((consulta) => consulta.id_consulta !==id));
+    } catch (erro) {
+      alert ("Erro ao excluir consulta: " + erro.message);
+    }
+  }
+
+
+  const editarConsulta = (consulta) =>{
+    setConsultaEditando(consulta);
+    setIsModalOpen(true)
+  }
   return (
     <div className='odin'>
       <Header2 />
@@ -31,7 +53,7 @@ export default function Agenda() {
               Novo Agendamento
             </button>
           </Link>
-          <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} consultaEditando={consultaEditando}/>
         </div>
         <div className='filter'>
           <input id='startDate'
@@ -48,26 +70,38 @@ export default function Agenda() {
         </div>
       </div>
 
-      {erro && <p style = {{color:'red'}}>{erro}</p>}
+      {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
-      
+
       {consultas.length > 0 ? (
         <table className="table table-hover">
           <thead>
             <tr className='tren'>
+              <th scope='col'>ID</th>
               <th scope='col'>Paciente</th>
               <th scope='col'>Serviço</th>
               <th scope='col'>Data/Hora</th>
               <th scope='col'>Valor</th>
+              <th scope='col'></th>
             </tr>
           </thead>
           <tbody>
-          {consultas.map((consulta, index) => (
+            {consultas.map((consulta, index) => (
               <tr key={index} className='tren'>
+                <td scope='col'>{consulta.id_consulta}</td>
                 <td scope='col'>{consulta.nome_do_paciente}</td>
                 <td scope='col'>{consulta.tipo_consulta}</td>
                 <td scope='col'>{consulta.data_consulta}</td>
-                <td scope='col' className='col-buttons'>{consulta.valor}</td>
+                <td scope='col' className='col-buttons'>R${consulta.valor}</td>
+                <td scope='col' className='col-buttons'>
+                  <button onClick={() => editarConsulta(consulta)} className='bnt-editar'>
+                    <FilePenLine/>
+                    </button>
+
+                    <button onClick={() => excluirConsulta(consulta.id_consulta)} className='btn-excluir'>
+                      <Trash/>
+                    </button>
+                </td>
               </tr>
             ))}
           </tbody>
