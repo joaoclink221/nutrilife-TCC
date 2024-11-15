@@ -10,7 +10,7 @@ export default function Agenda() {
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5010/consultas")
+    axios.get("http://localhost:5010/listaPaciente")
       .then(Response => {
         setConsultas(Response.data)
         setErro(null)
@@ -62,7 +62,7 @@ export default function Agenda() {
             </tr>
           </thead>
           <tbody>
-            {consultas.map((consulta, index) => (
+          {consultas.map((consulta, index) => (
               <tr key={index} className='tren'>
                 <td scope='col'>{consulta.nome_do_paciente}</td>
                 <td scope='col'>{consulta.tipo_consulta}</td>

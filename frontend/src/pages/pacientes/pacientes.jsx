@@ -2,9 +2,24 @@ import Header2 from "../../components/header2/Header2.jsx"
 import "./pacientes.scss"
 import ModalPaciente from "../../components/modais/modalCadastro/ModalPaciente"
 import { UserRoundPlus } from "lucide-react"
-import { useState } from "react"
-const Pacientes = () => {
+import { useState, useEffect } from 'react';
+import axios from "axios"
+function Pacientes() {
   const [isModalOpen,  setIsModalOpen] = useState(false);
+  const [pacientes, setPacientes] = useState([])
+  const [erro, setErro] = useState(null)
+
+  useEffect(() => {
+    axios.get("http://localhost:5010/")
+      .then(Response => {
+        setPacientes(Response.data)
+        setErro(null)
+      })
+      .catch(error => {
+        console.error("erro ao buscar consultas:", error);
+        setErro("erro ao buscar consulta. tente novamente mais tarde")
+      });
+  }, []);
   return (
     <div>
       <Header2 />
@@ -22,7 +37,11 @@ const Pacientes = () => {
           </select>
         </div>
       </div>
-      <table className="table table-hover">
+
+      {erro && <p style = {{color:'red'}}>{erro}</p>}
+
+
+      { pacientes.length >0 ?(<table className="table table-hover">
         <thead>
           <tr className='tren'>
             <th scope='col'>ID</th>
@@ -36,14 +55,23 @@ const Pacientes = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className='tren'>
-            <td scope='col'>1</td>
-            <td scope='col'>Joao Victor Rocha Dos Santos</td>
-            <td scope='col'>Grave</td>
-            <td scope='col'>XX XX</td>
-          </tr>
+
+        {pacientes.map((pacientes, index) => (
+              <tr key={index} className='tren'>
+                <td scope='col'>{pacientes.id_paciente}</td>
+                <td scope='col'>{pacientes.nome}</td>
+                <td scope='col'>{pacientes.data_nascimento}</td>
+                <td scope='col'>{pacientes.genero}</td>
+                <td scope='col'>{pacientes.telefone}</td>
+                <td scope='col'>{pacientes.email}</td>
+                <td scope='col'>{pacientes.situacao}</td>
+                <td scope='col' className='col-buttons'>{pacientes.valor}</td>
+              </tr>
+            ))}
         </tbody>
-      </table>
+      </table>): (
+        !erro && <p>Nenhuma consulta encontrada.</p>
+      )}
     </div>
   )
 }
