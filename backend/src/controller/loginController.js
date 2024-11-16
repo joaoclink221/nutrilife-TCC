@@ -17,7 +17,7 @@ endpoints.post("/login", async (req, resp) => {
       });
     } else {
       resp.status(400).send({
-        message: "usuário ou senhas incorreto.",
+        message: "usuário ou senha incorreto.",
       });
     }
   } catch (err) {

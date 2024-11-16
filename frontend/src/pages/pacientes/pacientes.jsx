@@ -17,7 +17,8 @@ function Pacientes() {
       })
       .catch(error => {
         console.error("erro ao buscar consultas:", error);
-        setErro("erro ao buscar consulta. tente novamente mais tarde")
+        if(pacientes.length == 0){setErro("nenhuma consulta encontrada")}
+        else {setErro("erro ao buscar consulta. tente novamente mais tarde")}
       });
   }, [pacientes]);
   return (

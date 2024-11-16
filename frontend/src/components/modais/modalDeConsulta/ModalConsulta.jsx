@@ -46,12 +46,12 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       if(consultaEditando){
         console.log(consultaEditando)
         const resposta = await axios.put(`http://localhost:5010/AtualizarConsulta/${consultaEditando.id_consulta}`, dados)
-        setMensagem(`consulta editada com sucesso! ID:${resposta.data}`)
+        setMensagem(`consulta editada com sucesso`)
       } else{
         console.log(dataConsulta);
         
         const resposta = await axios.post("http://localhost:5010/CadastroConsulta", dados);
-        setMensagem(`Consulta registrada com sucesso! ID: ${resposta.data}`);
+        setMensagem(`Consulta registrada com sucesso!`);
         setNomePaciente("");
         setDataConsulta("");
         setTipoConsulta("");

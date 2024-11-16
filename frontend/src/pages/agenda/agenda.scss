@@ -126,3 +126,108 @@ td {
   height: 20px;
   margin-right: 6px;
 }
+/* Responsividade para telas médias (tablets) */
+@media (max-width: 768px) {
+  .pt-2 {
+    flex-direction: column;
+    gap: 2rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 100%;
+  }
+
+  #startDate, #endDate {
+    width: 100%;
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .pt-2 {
+    gap: 1rem; 
+  }
+
+  .filter {
+    font-size: 16px; 
+    align-items: stretch;
+  }
+
+  .agendamento {
+    font-size: 15px;
+    height: 2.5rem;
+  }
+
+  .filter2 {
+    font-size: 15px;
+    height: 2.5rem;
+  }
+
+  th, td {
+    font-size: 16px;
+  }
+
+  .bnt-editar svg, .btn-excluir svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .pt-2 {
+    gap: 20rem;
+  }
+
+  .agendamento, .filter2 {
+    width: 10rem;
+  }
+
+  .filter {
+    gap: 20px; 
+  }
+
+  th, td {
+    font-size: 18px; 
+  }
+}
+
+
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .pt-2 {
+    gap: 25rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 12rem; 
+  }
+
+  th, td {
+    font-size: 20px; 
+  }
+}
+
+
+@media (min-width: 1921px) {
+  .pt-2 {
+    gap: 30rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 13rem; 
+  }
+
+  th, td {
+    font-size: 22px; 
+  }
+
+  .filter {
+    gap: 30px; 
+  }
+}
+
+
