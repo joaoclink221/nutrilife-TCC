@@ -3,27 +3,18 @@ import * as db from "../repository/financeiroRepository.js";
 import { Router } from "express";
 const endpoints = Router();
 
-endpoints.post("cadastroDespesa", async (req, resp) => {
+endpoints.post("/cadastroDespesa", async (req, resp) => {
   try {
     const { situacao, ds_despesa, valor } = req.body;
 
-    const verificarCadastro = await db.verificarCadastroDespesa(
-      situacao,
-      ds_despesa,
-      valor
-    );
-
-    if (!verificarCadastro) {
-      return resp.status(400).send({
-        message: verificarCadastro.message,
-      });
-    }
-
+    console.log(situacao);
+    
     const despesaId = await db.cadastrarDespesa({
       situacao,
       ds_despesa,
       valor,
     });
+    
 
     return resp.status(201).send({
       message: "Cadastro bem sucedido",

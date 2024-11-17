@@ -1,14 +1,17 @@
 import con from "./connection.js";
 
-export async function cadastrarDespesa(situacao, ds_despesa, valor){
-  const comando = `insert into tb_financeiro ( situacao, ds_despesa, valor)
-  values(?,?,?)`
+export async function cadastrarDespesa({situacao, ds_despesa, valor}){
   try {
-    const resposta = await con.query(comando, [
+    const comando = `insert into tb_financeiro ( situacao, ds_despesa, valor)
+                                       values(?, ?, ?)`;
+    const [resposta] = await con.query(comando, [
       situacao, ds_despesa, valor
     ])
-    let info = resposta[0]
-    return info.insertId
+
+    console.log(situacao);
+   
+    return resposta.insertId
+
   } catch (erro) {
     console.error("Erro ao executar o comando SQL:", erro);
     throw erro;
@@ -22,12 +25,14 @@ export async function listarDespesas() {
   `;
 
   const [linhas] = await con.query(comando)
+  console.log(linhas);
+  
   return linhas
 }
 
 
 
-export async function verificarCadastroDespesa(situacao, ds_despesa, valor) {
+export async function verificarCadastroDespesa({situacao, ds_despesa, valor}) {
 
   if(!situacao|| !ds_despesa|| !valor){
     return false;
@@ -39,6 +44,9 @@ export async function verificarCadastroDespesa(situacao, ds_despesa, valor) {
     `;
 
     const [linhas] = await con.query(comando, [situacao, ds_despesa, valor]);
+
+    console.log(linhas);
+    
 
     if(linhas[0].count >0){
       return false;
