@@ -42,11 +42,8 @@ SELECT * FROM tb_cadastro_paciente;
 create table tb_financeiro(
 id_despesa           INT AUTO_INCREMENT PRIMARY KEY,
 situacao            boolean,
-tipo_despesa        varchar(255),
-valor                decimal(5,2),
-receita_mes            decimal(5,2),
-gasto                decimal(5,2),
-lucro                decimal(5,2)
+ds_despesa        varchar(255),
+valor                decimal(5,2)
 );
 
 /*drop database bd_nutrilife;

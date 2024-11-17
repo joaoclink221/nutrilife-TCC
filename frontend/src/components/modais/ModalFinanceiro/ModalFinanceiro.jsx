@@ -1,6 +1,7 @@
 import "./ModalFinanceiro.scss";
-
+import { useState } from "react";
 const ModalFinanceiro = ({ isOpen = true, onClose }) => {
+  const [situacao, setSituacao] = useState()
   if (!isOpen) return null;
   return (
     <div className="overlay-container">
@@ -14,12 +15,16 @@ const ModalFinanceiro = ({ isOpen = true, onClose }) => {
             <div className="primary-group">
               
               <div className="input-wrapper">
-                <label htmlFor="situacao">Situação</label>
-                <input type="checkbox" id="situacao" className="checkbox-field" />
+                <label htmlFor="situacao">tipo de despesa</label>
+                <select className="input-field" onChange={(e) => {(e.target.value)}}>
+                  <option value=''>tipo</option>
+                  <option value={true}>ganho</option>
+                  <option value={false}>gasto</option>
+                </select>
               </div>
               
               <div className="input-wrapper">
-                <label htmlFor="tipo_despesa">Tipo de Despesa</label>
+                <label htmlFor="tipo_despesa">Nome da despesa</label>
                 <input type="text" id="tipo_despesa" className="input-field" />
               </div>
               
@@ -28,20 +33,9 @@ const ModalFinanceiro = ({ isOpen = true, onClose }) => {
                 <input type="number" id="valor" className="input-field" step="0.01" />
               </div>
               
-              <div className="input-wrapper">
-                <label htmlFor="receita_mes">Receita do Mês</label>
-                <input type="number" id="receita_mes" className="input-field" step="0.01" />
-              </div>
               
-              <div className="input-wrapper">
-                <label htmlFor="gasto">Gasto</label>
-                <input type="number" id="gasto" className="input-field" step="0.01" />
-              </div>
               
-              <div className="input-wrapper">
-                <label htmlFor="lucro">Lucro</label>
-                <input type="number" id="lucro" className="input-field" step="0.01" />
-              </div>
+              
 
               <button type="submit" className="hollow">Salvar</button>
             </div>
