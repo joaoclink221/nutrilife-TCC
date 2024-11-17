@@ -92,6 +92,7 @@ const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
       if(pacienteEditando){
         console.log(pacienteEditando);
         const resposta = await axios.put(`http://localhost:5010/atualizarPaciente/${pacienteEditando.id_paciente}`,dados)
+        alert(resposta.data.message);
         setMensagem(`ficha do paciente editada com sucesso`)
       } else{
         console.log(inicio);
@@ -99,6 +100,7 @@ const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
 
         const resposta = await axios.post("http://localhost:5010/cadastropaciente", dados)
         setMensagem(`paciente registrado com sucesso!`);
+        alert(resposta.data.message);
         setNome("")
         setDataNascimento("")
         setSexo("")

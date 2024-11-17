@@ -83,10 +83,7 @@ endpoints.get("/listaPaciente", async (req, resp) => {
       });
     }
 
-    return resp.status(200).send({
-      message: "Pacientes encontrados com sucesso.",
-      pacientes,
-    });
+    return resp.status(200).send(pacientes);
   } catch (err) {
     console.error("Erro ao listar pacientes:", err);
     resp.status(500).send({

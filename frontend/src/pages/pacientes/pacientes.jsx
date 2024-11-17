@@ -6,28 +6,28 @@ import { useState, useEffect } from 'react';
 import axios from "axios"
  export default function Pacientes() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pacientes, setPacientes] = useState([])
+  const [pacientesList, setPacientesList] = useState([])
   const [erro, setErro] = useState(null)
   const [pacienteEditando, setPacienteEditando] = useState(null)
 
   useEffect(() => {
     axios.get("http://localhost:5010/listaPaciente")
       .then(Response => {
-        setPacientes(Response.data)
+        setPacientesList(Response.data)
         setErro(null)
       })
       .catch(error => {
         console.error("erro ao buscar pacientes:", error);
-        if (pacientes.length == 0) { setErro("nenhum paciente encontrado") }
+        if (pacientesList.length == 0) { setErro("nenhum paciente encontrado") }
         else { setErro("erro ao buscar paciente. tente novamente mais tarde") }
       });
-  }, [pacientes]);
+  }, [pacientesList]);
 
   const excluirPaciente = async (id) => {
     try {
       const resposta = await axios.delete(`http://localhost:5010/excluirPaciente/${id}`);
       alert(resposta.data.message);
-      setPacientes(pacientes.filter((paciente) => paciente.id_paciente !== id));
+      setPacientesList(pacientesList.filter((paciente) => paciente.id_paciente !== id));
     } catch (erro) {
       alert("Erro ao excluir Paciente: " + erro.message);
     }
@@ -59,7 +59,8 @@ import axios from "axios"
         {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
 
-        {pacientes.length > 0 ? (<table className="table table-hover">
+        {pacientesList.length > 0 ? (
+          <table className="table table-hover">
           <thead>
             <tr className='tren'>
               <th scope='col'>ID</th>
@@ -73,7 +74,7 @@ import axios from "axios"
           </thead>
           <tbody>
 
-            {pacientes.map((paciente, index) => (
+            {pacientesList.map((paciente, index) => (
               <tr key={index} className='tren'>
                 <td scope='col'>{paciente.id_paciente}</td>
                 <td scope='col'>{paciente.nome}</td>

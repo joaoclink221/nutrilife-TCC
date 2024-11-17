@@ -7,31 +7,31 @@ import axios from "axios"
 import {FilePenLine, Trash} from "lucide-react"
 export default function Agenda() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [consultas, setConsultas] = useState([]);
+  const [consultasList, setConsultasList] = useState([]);
   const [erro, setErro] = useState(null);
   const [consultaEditando, setConsultaEditando] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:5010/consultas")
       .then(Response => {
-        setConsultas(Response.data)
+        setConsultasList(Response.data)
         setErro(null)
       })
       .catch(error => {
         console.error("erro ao buscar consultas:", error);
 
-        if(consultas.length == 0){setErro("nenhuma consulta encontrada")}
+        if(consultasList.length == 0){setErro("nenhuma consulta encontrada")}
         else {setErro("erro ao buscar consulta. tente novamente mais tarde")}
         
       });
-  }, [consultas]);
+  }, [consultasList]);
 
 
   const excluirConsulta = async (id) =>{
     try {
       const resposta = await axios.delete(`http://localhost:5010/excluirConsultas/${id}`);
       alert(resposta.data.message);
-      setConsultas(consultas.filter((consulta) => consulta.id_consulta !==id));
+      setConsultasList(consultasList.filter((consulta) => consulta.id_consulta !==id));
     } catch (erro) {
       alert ("Erro ao excluir consulta: " + erro.message);
     }
@@ -47,7 +47,7 @@ export default function Agenda() {
       <Header2 />
       <div className='pt-2'>
         <div className='pre-Modal'>
-          <h2>Agendamento</h2>
+          <h2>Agendamentos</h2>
           <Link className='link'>
             <button className='agendamento' onClick={() => setIsModalOpen(true)}>
               Novo Agendamento
@@ -73,7 +73,7 @@ export default function Agenda() {
       {erro && <p style={{ color: 'red' }}>{erro}</p>}
 
 
-      {consultas.length > 0 ? (
+      {consultasList.length > 0 ? (
         <table className="table table-hover">
           <thead>
             <tr className='tren'>
@@ -86,7 +86,7 @@ export default function Agenda() {
             </tr>
           </thead>
           <tbody>
-            {consultas.map((consulta, index) => (
+            {consultasList.map((consulta, index) => (
               <tr key={index} className='tren'>
                 <td scope='col'>{consulta.id_consulta}</td>
                 <td scope='col'>{consulta.nome_do_paciente}</td>
