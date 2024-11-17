@@ -16,6 +16,8 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       setValorConsulta(consultaEditando.valor);
       setTipoConsulta(consultaEditando.tipo_consulta);
       setDataConsulta(consultaEditando.data_consulta.slice(0, 16));
+      console.log(dataConsulta);
+      
     } else{
       setNomePaciente("");
       setValorConsulta("");

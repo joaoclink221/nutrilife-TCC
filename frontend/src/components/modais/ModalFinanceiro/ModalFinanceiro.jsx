@@ -1,6 +1,6 @@
 import "./ModalFinanceiro.scss";
 
-const ModalFinanceiro = ({ isOpen, onClose }) => {
+const ModalFinanceiro = ({ isOpen = true, onClose }) => {
   if (!isOpen) return null;
   return (
     <div className="overlay-container">

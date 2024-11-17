@@ -20,7 +20,7 @@ const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
   useEffect(() => {
     if (pacienteEditando) {
       setNome(pacienteEditando.nome)
-      setDataNascimento(pacienteEditando.data_nacimento)
+      setDataNascimento(new Date(pacienteEditando.data_nacimento).toLocaleDateString())
       setSexo(pacienteEditando.genero)
       setTelefone(pacienteEditando.telefone)
       setEmail(pacienteEditando.email)

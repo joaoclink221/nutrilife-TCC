@@ -78,7 +78,7 @@ import axios from "axios"
               <tr key={index} className='tren'>
                 <td scope='col'>{paciente.id_paciente}</td>
                 <td scope='col'>{paciente.nome}</td>
-                <td scope='col'>{paciente.data_nascimento.replaceAll('-', '/')}</td>
+                <td scope='col'>{new Date(paciente.data_nascimento).toLocaleDateString()}</td>
                 <td scope='col'>{paciente.genero}</td>
                 <td scope='col'>{paciente.telefone}</td>
                 <td scope='col'>{paciente.email}</td>
