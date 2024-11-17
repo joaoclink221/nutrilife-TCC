@@ -29,9 +29,6 @@ endpoints.post("/CadastroPaciente", async (req, resp) => {
   }
 });
 
-
-
-
 //mostra todos os pacientes
 endpoints.get("/listaPaciente", async (req, resp) => {
   try {
@@ -39,46 +36,74 @@ endpoints.get("/listaPaciente", async (req, resp) => {
 
     if (pacientes.length === 0) {
       return resp.status(404).send({
-        message: "Nenhum paciente encontrado."
+        message: "Nenhum paciente encontrado.",
       });
     }
 
-    
     return resp.status(200).send({
       message: "Pacientes encontrados com sucesso.",
-      pacientes
+      pacientes,
     });
   } catch (err) {
     console.error("Erro ao listar pacientes:", err);
     resp.status(500).send({
-      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`
+      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
     });
   }
 });
 
-
-endpoints.delete("/excluirPaciente/:id", async (req, resp) =>{
-  try{
-    const {id} =req.params;
-    const resultado = await db.excluirPaciente(id)
-    return resp.status(200).send({ message: resultado.message})
+endpoints.delete("/excluirPaciente/:id", async (req, resp) => {
+  try {
+    const { id } = req.params;
+    const resultado = await db.excluirPaciente(id);
+    return resp.status(200).send({ message: resultado.message });
   } catch (err) {
-    return resp.status(500).send({ erro: `Erro ao excluir paciente: ${err.message}` })
+    return resp
+      .status(500)
+      .send({ erro: `Erro ao excluir paciente: ${err.message}` });
   }
 });
 
-endpoints.put("/atualizarPaciente/:id", async (req, resp) =>{
-  try{
+endpoints.put("/atualizarPaciente/:id", async (req, resp) => {
+  try {
     const { id } = req.params;
-    const { nome, data_nascimento, genero, telefone, email, cintura, quadril, peso, altura, tipo_dieta, data_inicio, data_fim, Descricao
-    } = req.body
+    const {
+      nome,
+      data_nascimento,
+      genero,
+      telefone,
+      email,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao,
+    } = req.body;
 
-    const resultado = await db.atualizarPaciente(id, { nome, data_nascimento, genero, telefone, email, cintura, quadril, peso, altura, tipo_dieta, data_inicio, data_fim, Descricao
-    })
+    const resultado = await db.atualizarPaciente(id, {
+      nome,
+      data_nascimento,
+      genero,
+      telefone,
+      email,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao,
+    });
     return resp.status(200).send({ message: resultado.message });
   } catch (err) {
-    return resp.status(500).send({ erro: `Erro ao atualizar paciente: ${err.message}` });
+    return resp
+      .status(500)
+      .send({ erro: `Erro ao atualizar paciente: ${err.message}` });
   }
-})
+});
 
 export default endpoints;
