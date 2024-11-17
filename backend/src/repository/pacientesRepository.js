@@ -1,37 +1,59 @@
 import con from "./connection.js";
 
 export async function cadastrarPaciente(paciente) {
+  console.log("Iniciando cadastro de paciente...");
+  console.log("Dados recebidos para cadastro:", paciente);
+
   const comando = `
-  INSERT INTO tb_cadastro_paciente (
-    nome,
-    data_nascimento,
-    genero,
-    telefone,
-    email,
-    cintura,
-    quadril,
-    peso,
-    altura,
-    descricao
-) 
-VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
-); `;
-const resposta = await con.query(comando, [
-  paciente.nome,
-  paciente.data_nascimento,
-  paciente.genero,
-  paciente.telefone,
-  paciente.email,
-  paciente.cintura,
-  paciente.quadril,
-  paciente.peso,
-  paciente.altura,
-  paciente.Descrição,
-]);
-let info = resposta[0];
-return info.insertId;
+    INSERT INTO tb_cadastro_paciente (
+      nome,
+      data_nascimento,
+      genero,
+      telefone,
+      email,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao
+    ) 
+    VALUES (
+      ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+    );`;
+
+  console.log("Comando SQL preparado:", comando);
+
+  try {
+    const resposta = await con.query(comando, [
+      paciente.nome,
+      paciente.data_nascimento,
+      paciente.genero,
+      paciente.telefone,
+      paciente.email,
+      paciente.cintura,
+      paciente.quadril,
+      paciente.peso,
+      paciente.altura,
+      paciente.tipo_dieta,    
+      paciente.data_inicio,   
+      paciente.data_fim,      
+      paciente.Descricao     
+    ]);
+
+    console.log("Resposta do banco de dados:", resposta);
+    let info = resposta[0];
+    console.log("ID inserido:", info.insertId);
+
+    return info.insertId;
+  } catch (erro) {
+    console.error("Erro ao executar o comando SQL:", erro);
+    throw erro;
+  }
 }
+
 
 export async function listarPacientes() {
   const comando = `

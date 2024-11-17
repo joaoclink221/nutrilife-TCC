@@ -6,25 +6,68 @@ const endpoints = Router();
 //cadastra pacientes
 endpoints.post("/CadastroPaciente", async (req, resp) => {
   try {
-    const {nome, data_nascimento, genero, email, telefone, cintura, quadril, peso, altura, Descricao} = req.body;
+    const {
+      nome,
+      data_nascimento,
+      genero,
+      email,
+      telefone,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao,
+    } = req.body;
 
-    const userValido = await db.verificarCadastroPaciente(nome, data_nascimento, genero, email, telefone, cintura, quadril, peso, altura, Descricao);
+    const userValido = await db.verificarCadastroPaciente(
+      nome,
+      data_nascimento,
+      genero,
+      email,
+      telefone,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao
+    );
 
-    if(!userValido){
+    if (!userValido) {
       return resp.status(400).send({
-        message: "Erro no cadastro: O email já está cadastrado ou algum dado está incorreto."
-      })
+        message:
+          "Erro no cadastro: O email já está cadastrado ou algum dado está incorreto.",
+      });
     }
-    const pacienteId = await db.cadastrarPaciente({nome, data_nascimento, genero, email, telefone, cintura, quadril, peso, altura, Descricao});
+    const pacienteId = await db.cadastrarPaciente({
+      nome,
+      data_nascimento,
+      genero,
+      email,
+      telefone,
+      cintura,
+      quadril,
+      peso,
+      altura,
+      tipo_dieta,
+      data_inicio,
+      data_fim,
+      Descricao,
+    });
 
     return resp.status(201).send({
       message: "Cadastro bem sucedido",
-      id_paciente: pacienteId
-    })
+      id_paciente: pacienteId,
+    });
   } catch (err) {
     console.error("Erro no cadastro:", err);
     resp.status(500).send({
-      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`
+      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
     });
   }
 });
