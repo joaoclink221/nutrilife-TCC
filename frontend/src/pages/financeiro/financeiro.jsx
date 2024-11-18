@@ -23,6 +23,8 @@ function Financeiro() {
       })
   }, [])
 
+  
+
   const excluiDespesa = async (id) => {
     try {
       const resposta = await axios.delete(`http://localhost:5010/excluirDespesas/${id}`);
@@ -46,36 +48,36 @@ function Financeiro() {
 
         {erro && <p style={{ color: 'red' }}>{erro}</p>}
         <div className='tabela'>
-          {despesasList.length >0 ?(
+          {despesasList.length > 0 ? (
             <table className="table table hover">
-            <thead>
-              <tr className='tren1'>
-                <th scope='col'>situação</th>
-                <th scope='col'>categoria</th>
-                <th scope='col'>valor</th>
-                <th scope='col' className='col-buttons'></th>
-              </tr>
-            </thead>
-            <tbody>
-              {despesasList.map((despesa, index) => (
-                <tr key={index} className='tren'>
-                  <td scope='col'>{despesa.situacao ? <ThumbsUp /> : <ThumbsDown />}</td>
-                  <td scope='col'>{despesa.ds_despesa}</td>
-                  <td scope='col'>{despesa.valor}</td>
-                  <td scope="col">
-                    <button onClick={() => excluiDespesa(despesa.id_despesa)} className='btn-excluir'>
-                      <Trash />
-                    </button>
-                  </td>
+              <thead>
+                <tr className='tren1'>
+                  <th scope='col'>situação</th>
+                  <th scope='col'>categoria</th>
+                  <th scope='col'>valor</th>
+                  <th scope='col' className='col-buttons'></th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {despesasList.map((despesa, index) => (
+                  <tr key={index} className='tren'>
+                    <td scope='col'>{despesa.situacao ? <ThumbsUp /> : <ThumbsDown />}</td>
+                    <td scope='col'>{despesa.ds_despesa}</td>
+                    <td scope='col'>{despesa.valor}</td>
+                    <td scope="col">
+                      <button onClick={() => excluiDespesa(despesa.id_despesa)} className='btn-excluir'>
+                        <Trash />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
           ) : (
             !erro && <p>Nenhuma conta encontrada.</p>
           )}
-          
+
         </div>
 
         <div className='botton'>

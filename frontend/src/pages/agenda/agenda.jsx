@@ -80,7 +80,7 @@ export default function Agenda() {
               <th scope='col'>ID</th>
               <th scope='col'>Paciente</th>
               <th scope='col'>Serviço</th>
-              <th scope='col'>Data/Hora</th>
+              <th scope='col'>Data</th>
               <th scope='col'>Valor</th>
               <th scope='col'></th>
             </tr>

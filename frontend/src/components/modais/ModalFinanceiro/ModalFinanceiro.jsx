@@ -2,7 +2,7 @@ import axios from "axios";
 import "./ModalFinanceiro.scss";
 import { useState } from "react";
 
-const ModalFinanceiro = ({ isOpen, onClose }) => {
+const ModalFinanceiro = ({ isOpen, onClose}) => {
   const [ tipoDespesa, setTipoDespesa ] = useState();
   const [ nomeDespesa, setNomeDespesa ] = useState("");
   const [valor, setValor] = useState();
