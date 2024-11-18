@@ -8,7 +8,6 @@ import Login from './pages/login/Login.jsx'
 import Pacientes from './pages/pacientes/pacientes.jsx'
 import Financeiro from './pages/financeiro/financeiro.jsx'
 import ModalConsulta from './components/modais/modalDeConsulta/ModalConsulta.jsx'
-import ModalFinanceiro from './components/modais/ModalFinanceiro/ModalFinanceiro.jsx'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 createRoot(document.getElementById('root')).render(
@@ -18,7 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/' element={<App />} />
         <Route path='/login' element={<Login />} />
         <Route path='/inicio' element={<Inicio />} />
-        <Route path='/financeiro' element={<ModalFinanceiro />} />
+        <Route path='/financeiro' element={<Financeiro />} />
         <Route path='/consulta' element={<ModalConsulta />} />
         <Route path='/pacientes' element={< Pacientes />} />
         <Route path='/agenda' element={<Agenda />} />

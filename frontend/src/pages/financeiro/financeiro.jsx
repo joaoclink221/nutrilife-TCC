@@ -5,9 +5,27 @@ import { ArrowDown } from "lucide-react"
 import { HandCoins } from "lucide-react"
 import { ThumbsUp } from "lucide-react"
 import { PlusIcon } from "lucide-react"
+import ModalFinanceiro from '../../components/modais/ModalFinanceiro/ModalFinanceiro.jsx';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
+function Financeiro(){
+  const [ isModalOpen, setIsModalOpen] = useState(false)
+  const [despesasList, setDespesasList] = useState([])
+  const [erro, setErro] = useState(null);
 
-const Financeiro = () => {
+  useEffect(() =>{
+    axios.get("http://localhost:5010/listarDespesas")
+    .then(response =>{
+      setDespesasList(response.data)
+      setErro(null)
+    })
+    .catch(error => {
+      console.error("erro ao buscar conta:", error);
+      if(despesasList.length == 0){setErro("nenhuma despesa encontrada")}
+        else {setErro("erro ao buscar despesa. tente novamente mais tarde")}
+    })
+  }, [despesasList])
   return (
     <div className='vô-financeiro'>
       <Header2 />
