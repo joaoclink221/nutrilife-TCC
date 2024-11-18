@@ -156,20 +156,20 @@
   border: 2px solid #068304;
 }
 
-.section3{
+.section3 {
   padding-top: 200px;
   margin: 100px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 
-  img{
+  img {
     border-radius: 950px;
     width: 400px;
   }
 }
 
-.titulo3{
+.titulo3 {
   display: flex;
   font-family: 'montserrat';
   font-size: 80px;
@@ -180,7 +180,7 @@
 }
 
 
-.texto{
+.texto {
   padding-bottom: 60px;
   padding-top: 80px;
   font-family: 'poppins';
@@ -188,7 +188,7 @@
   color: #013000;
 }
 
-.agendar{
+.agendar {
   justify-content: center;
   background-color: transparent;
   border-radius: 50px;
@@ -198,10 +198,10 @@
   font-size: 40px;
   color: #025d00;
   margin-left: 350px;
-  
+
 }
 
-.ebook{
+.ebook {
   justify-content: end;
   background-color: transparent;
   border-radius: 50px;
@@ -211,51 +211,64 @@
   color: #025d00;
 }
 
-.titulo4{
+.titulo4 {
   display: flex;
   font-family: 'montserrat';
-  font-size: 80px;
+  font-size: 50px;
+  color: #025d00;
+  width: 700px;
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+.texto4 {
+  
+  width: 400px;
+  padding-left: 100px;
+  padding-top: 20px;
+  font-family: 'poppins';
+  font-size: 10px;
+  color: #013000;
+  flex-wrap: wrap;
+}
+
+.section4 {
+  display: flex;
+  flex-wrap: wrap;
+
+  img {
+    width: 400px;
+    border: 1px solid #013000;
+    border-radius: 20px;
+    margin-left: 100px;
+  }
+}
+
+.titulo5 {
+  display: flex;
+  font-family: 'montserrat';
+  font-size: 70px;
   color: #025d00;
   width: 1100px;
   padding-left: 150px;
   padding-top: 150px;
 }
 
-.texto4{
+.texto5 {
   padding-bottom: 60px;
   padding-top: 80px;
   font-family: 'poppins';
-  font-size: 45px;
+  font-size: 20px;
   color: #013000;
+  padding-left: 20px;
+  width: 500px;
 }
 
-.section4{
-  .livro{
-  width: 10px;
-}}
-
-.titulo5{
+.section5 {
   display: flex;
-  font-family: 'montserrat';
-  font-size: 80px;
-  color: #025d00;
-  width: 1100px;
-  padding-left: 150px;
-  padding-top: 150px;
-}
+  flex-wrap: wrap;
 
-.texto5{
-  padding-bottom: 60px;
-  padding-top: 80px;
-  font-family: 'poppins';
-  font-size: 45px;
-  color: #013000;
-}
-
-.section5{
-  display: flex;
-
-  .nutri{
+  img {
     width: 20px;
     border-radius: 100px;
   }

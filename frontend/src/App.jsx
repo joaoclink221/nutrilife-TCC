@@ -51,7 +51,7 @@ export const App = () => {
         <h1 className='titulo4'>OBTENHA O LIVRO ESCRITO POR CRISTINA MIRANDA</h1>
         <p className='texto4'>Baseado em Trabalho de Conclusão de Curso, editado e melhorado, Cristina Miranda disserta sobre o problema causado pelas redes sociais em relação as redes sociais, com suas dietas mirabolantes sem entender os conceitos base da nutrição. </p>
 
-        <button className='ebook'>Obter E-Book</button>
+        
       </div>
 
       <div className='section5'>
