@@ -21,7 +21,7 @@ export default function Login() {
 
       });
       setTimeout(() => {
-        navigate("/agenda");
+        navigate("/inicio");
       }, 2000);
       setMensagem(resposta.data.message);
     } catch (err) {
