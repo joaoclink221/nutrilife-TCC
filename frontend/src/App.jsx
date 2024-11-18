@@ -75,7 +75,7 @@ export const App = () => {
           <p>resposta</p>
           </div>
 
-          <div className='bc3'><h3>duvida</h3>
+          <div className='bc1'><h3>duvida</h3>
           <p>resposta</p>
           </div>
           
