@@ -10,11 +10,6 @@ export const navigation = [
       url: "/financeiro",
     },
     {
-      id: "2",
-      title: "Menssagem",
-      url: "/menssagem",
-    },
-    {
       id: "3",
       title: "Agendamento",
       url: "/agenda",

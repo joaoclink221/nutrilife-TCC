@@ -75,3 +75,159 @@ th {
 td {
   font-size: 20px;
 }
+.bnt-editar, .btn-excluir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.bnt-editar {
+  color: #4CAF50;
+}
+
+.bnt-editar:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.bnt-editar:active {
+  transform: scale(0.98);
+}
+
+.bnt-editar:focus {
+  outline: none;
+}
+
+.btn-excluir {
+  color: #f44336;
+  margin-left: 8px;
+}
+
+.btn-excluir:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.btn-excluir:active {
+  transform: scale(0.98);
+}
+
+.btn-excluir:focus {
+  outline: none;
+}
+
+.bnt-editar svg, .btn-excluir svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+/* Responsividade para telas médias (tablets) */
+@media (max-width: 768px) {
+  .pt-2 {
+    flex-direction: column;
+    gap: 2rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 100%;
+  }
+
+  #startDate, #endDate {
+    width: 100%;
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .pt-2 {
+    gap: 1rem; 
+  }
+
+  .filter {
+    font-size: 16px; 
+    align-items: stretch;
+  }
+
+  .agendamento {
+    font-size: 15px;
+    height: 2.5rem;
+  }
+
+  .filter2 {
+    font-size: 15px;
+    height: 2.5rem;
+  }
+
+  th, td {
+    font-size: 16px;
+  }
+
+  .bnt-editar svg, .btn-excluir svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .pt-2 {
+    gap: 20rem;
+  }
+
+  .agendamento, .filter2 {
+    width: 10rem;
+  }
+
+  .filter {
+    gap: 20px; 
+  }
+
+  th, td {
+    font-size: 18px; 
+  }
+}
+
+
+@media (min-width: 1366px) and (max-width: 1920px) {
+  .pt-2 {
+    gap: 25rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 12rem; 
+  }
+
+  th, td {
+    font-size: 20px; 
+  }
+}
+
+
+@media (min-width: 1921px) {
+  .pt-2 {
+    gap: 30rem; 
+  }
+
+  .agendamento, .filter2 {
+    width: 13rem; 
+  }
+
+  th, td {
+    font-size: 22px; 
+  }
+
+  .filter {
+    gap: 30px; 
+  }
+}
+
+

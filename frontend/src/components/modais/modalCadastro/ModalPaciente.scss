@@ -1,18 +1,18 @@
-/* Sobreposição do modal para cobrir a tela inteira */
+
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7); /* Escurecimento do fundo */
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
   }
   
-  /* Caixa de conteúdo do modal */
+ 
   .modal-content {
     background: #ffffff;
     padding: 30px;
@@ -23,7 +23,7 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     max-height: 90vh; 
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin; 
   scrollbar-color: #6ae089 #e0e0e0;
   }
   .modal-content::-webkit-scrollbar {
@@ -42,7 +42,7 @@
     background-color: #4db86b; 
   }
   
-  /* Botão de fechar */
+  
   .close-button {
     position: absolute;
     top: 10px;
@@ -53,14 +53,14 @@
     cursor: pointer;
   }
   
-  /* Estilo do formulário */
+  
   #formulario {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaçamento entre seções */
+    gap: 20px; 
   }
   
-  /* Seções de dados iniciais */
+  
   .Dados-iniciais,
   .Dados-da-Paciente {
     display: flex;
@@ -68,12 +68,12 @@
     margin-top: 1.5rem;
   }
   
-  /* Alinhamento dos inputs */
+  
   .heimdal,
   .info-dieta {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Espaçamento entre inputs */
+    gap: 1.5rem; 
     justify-content: space-between;
   }
   

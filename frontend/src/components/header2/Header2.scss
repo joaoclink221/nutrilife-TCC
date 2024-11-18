@@ -1,35 +1,65 @@
-.cable{
+.cable {
   position: relative;
   background-color: #9ce9b0;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
-  gap: 5rem;
+  gap: 5rem; /* Espaçamento padrão entre os botões */
   height: 4.3rem;
   margin-bottom: 2rem;
-  width: full;
-  
+  width: 100%; /* Ajusta a largura para ocupar o espaço */
+
+  /* Responsividade para telas médias (tablets) */
+  @media (max-width: 768px) {
+    gap: 2rem; /* Reduz o espaçamento */
+    height: 3.5rem; /* Altura menor */
+  }
+
+  /* Responsividade para telas pequenas (smartphones) */
+  @media (max-width: 480px) {
+    flex-direction: column; /* Organiza os itens verticalmente */
+    gap: 1rem; /* Reduz o espaçamento ainda mais */
+    height: auto; /* Altura ajustada automaticamente */
+  }
 }
-.buttons{
+
+.buttons {
   display: inline-block;
   position: relative;
   font-size: 1.5rem;
-    line-height: 2.5rem;
-    text-decoration: none;
+  line-height: 2.5rem;
+  text-decoration: none;
   color: black;
+
   &:hover .gradient-underline {
-    transform: scaleX(1.2);
+    transform: scaleX(1.2); /* Efeito de hover */
+  }
+
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Tamanho menor da fonte */
+    line-height: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem; /* Fonte ainda menor */
   }
 }
-.gradient-underline{
+
+.gradient-underline {
   position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 3px;
-    background-image:black;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+
+  /* Mantém a proporção em telas menores */
+  @media (max-width: 768px) {
+    height: 2px;
+  }
 }
