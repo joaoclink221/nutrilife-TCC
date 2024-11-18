@@ -72,19 +72,19 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 490px;
+  margin-top: 370px;
 
   .titulo1 {
     font-family: 'montserrat';
     color: #025d00;
-    font-size: 180px;
+    font-size: 130px;
   }
 
   .text {
     font-family: 'glacial indifference';
     font-style: italic;
     color: #025d00;
-    font-size: 60px;
+    font-size: 50px;
   }
 }
 
@@ -100,11 +100,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 190px;
+  margin: 130px 70px 90px 50px;
   justify-content: space-around;
-  gap: 90px;
-}
+  gap: 150px;
 
+}
 
 
 .card1 {
@@ -117,7 +117,6 @@
   text-align: center;
   padding: 70px 10px 60px;
   border: 2px solid #068304;
-
 }
 
 .card2 {
@@ -174,7 +173,7 @@
   font-family: 'montserrat';
   font-size: 80px;
   color: #025d00;
-  width: 1100px;
+  width: 100px;
   padding-left: 150px;
   padding-top: 150px;
 }
@@ -207,7 +206,7 @@
   border-radius: 50px;
   padding: 5px 40px 10px 40px;
   border-color: #025d00 #0f8671;
-  margin-top: 30px;
+  margin-top: 90px;
   color: #025d00;
 }
 
@@ -222,7 +221,7 @@
 }
 
 .texto4 {
-  
+
   width: 400px;
   padding-left: 100px;
   padding-top: 20px;
@@ -235,6 +234,7 @@
 .section4 {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 190px;
 
   img {
     width: 400px;
@@ -250,8 +250,8 @@
   font-size: 70px;
   color: #025d00;
   width: 1100px;
-  padding-left: 150px;
-  padding-top: 150px;
+  padding-left: 100px;
+  padding-top: 1700px;
 }
 
 .texto5 {
@@ -261,7 +261,7 @@
   font-size: 20px;
   color: #013000;
   padding-left: 20px;
-  width: 500px;
+  width: 700px;
 }
 
 .section5 {

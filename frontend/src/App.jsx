@@ -62,6 +62,25 @@ export const App = () => {
         </p>
         <img src="\src\assets\image\nutricionista.jpg" alt="nutri" />
       </div>
+
+      <div className='section6'>
+        <h1>DÚVIDAS FREQUNTES</h1>
+
+        <div className='blocos'>
+          <div className='bc1'><h3>duvida</h3>
+          <p>resposta</p>
+          </div>
+
+          <div className='bc2'><h3>duvida</h3>
+          <p>resposta</p>
+          </div>
+
+          <div className='bc3'><h3>duvida</h3>
+          <p>resposta</p>
+          </div>
+          
+        </div>
+      </div>
     </div>
   )
 }
