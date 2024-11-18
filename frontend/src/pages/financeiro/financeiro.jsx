@@ -43,8 +43,11 @@ function Financeiro() {
         </button>
 
         <ModalFinanceiro isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+        {erro && <p style={{ color: 'red' }}>{erro}</p>}
         <div className='tabela'>
-          <table className="table table hover">
+          {despesasList.length >0 ?(
+            <table className="table table hover">
             <thead>
               <tr className='tren1'>
                 <th scope='col'>situação</th>
@@ -69,6 +72,10 @@ function Financeiro() {
 
             </tbody>
           </table>
+          ) : (
+            !erro && <p>Nenhuma conta encontrada.</p>
+          )}
+          
         </div>
 
         <div className='botton'>

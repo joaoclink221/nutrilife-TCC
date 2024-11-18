@@ -19,7 +19,7 @@ const ModalFinanceiro = ({ isOpen, onClose }) => {
 
     try{
       const dados = {
-        situacao: tipoDespesa,
+        situacao: Boolean(tipoDespesa),
         ds_despesa : nomeDespesa,
         valor: parseFloat(valor)
       }
