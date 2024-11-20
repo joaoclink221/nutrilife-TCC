@@ -8,12 +8,27 @@ import { useEffect, useState } from 'react';
 function Financeiro() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [despesasList, setDespesasList] = useState([])
+  const [totalReceitas, setTotalReceitas] = useState(0);
+  const [totalDespesas, setTotalDespesas] = useState(0);
+  const [lucro, setLucro] = useState(0);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:5010/listarDespesas")
       .then(response => {
-        setDespesasList(response.data)
+        const data = response.data
+        setDespesasList(data)
+        const receita = data
+        .filter((item) => item.situacao === true)
+        .reduce((acumulador, item)=> acumulador + item.valor, 0)
+
+        const despesa = data
+        .filter((item) => item.situacao === false)
+        .reduce((acumulador, item)=> acumulador + item.valor, 0)
+
+        setTotalReceitas(receita)
+        setTotalDespesas(despesa)
+        setLucro(receita - despesa)
         setErro(null)
       })
       .catch(error => {
@@ -21,9 +36,7 @@ function Financeiro() {
         if (despesasList.length == 0) { setErro("nenhuma despesa encontrada") }
         else { setErro("erro ao buscar despesa. tente novamente mais tarde") }
       })
-  }, [])
-
-  
+  }, [despesasList])
 
   const excluiDespesa = async (id) => {
     try {
@@ -100,7 +113,7 @@ function Financeiro() {
 
             <tbody>
               <tr className='tren'>
-                <td scope='col'>800,90</td>
+                <td scope='col'>{totalReceitas}</td>
 
               </tr>
             </tbody>
@@ -120,7 +133,7 @@ function Financeiro() {
             </thead>
             <tbody>
               <tr className='tren'>
-                <td scope='col'>800,90</td>
+                <td scope='col'>{totalDespesas}</td>
               </tr>
             </tbody>
           </table>
@@ -139,7 +152,7 @@ function Financeiro() {
             </thead>
             <tbody>
               <tr className='tren'>
-                <td scope='col'>800,90</td>
+                <td scope='col'>{lucro}</td>
               </tr>
             </tbody>
           </table>

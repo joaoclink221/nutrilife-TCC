@@ -6,9 +6,6 @@ const endpoints = Router();
 endpoints.post("/cadastroDespesa", async (req, resp) => {
   try {
     const { situacao, ds_despesa, valor } = req.body;
-
-    console.log(situacao);
-    
     const despesaId = await db.cadastrarDespesa({
       situacao,
       ds_despesa,

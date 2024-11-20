@@ -3,7 +3,7 @@ import "./ModalFinanceiro.scss";
 import { useState } from "react";
 
 const ModalFinanceiro = ({ isOpen, onClose}) => {
-  const [ tipoDespesa, setTipoDespesa ] = useState();
+  const [ tipoDespesa, setTipoDespesa ] = useState(false);
   const [ nomeDespesa, setNomeDespesa ] = useState("");
   const [valor, setValor] = useState();
   const [mensagem, setMensagem] = useState("");
@@ -12,11 +12,6 @@ const ModalFinanceiro = ({ isOpen, onClose}) => {
   const register = async (event) =>{
     event.preventDefault();
 
-    if(!tipoDespesa || !nomeDespesa|| !valor){
-      setMensagem("todos os campos são obrigatórios.")
-      return;
-    }
-
     try{
       const dados = {
         situacao: Boolean(tipoDespesa),
@@ -24,9 +19,15 @@ const ModalFinanceiro = ({ isOpen, onClose}) => {
         valor: parseFloat(valor)
       }
 
+      if(tipoDespesa === null || !nomeDespesa|| !valor){
+        setMensagem("todos os campos são obrigatórios.")
+        return;
+      }
+
       const resposta = await axios.post(`http://localhost:5010/cadastroDespesa`, dados);
       setMensagem(`consulta registrada com sucesso`)
-
+      console.log(dados.situacao);
+      
       setTipoDespesa("");
       setNomeDespesa("");
       setValor("");
@@ -49,10 +50,10 @@ const ModalFinanceiro = ({ isOpen, onClose}) => {
               
               <div className="input-wrapper">
                 <label htmlFor="situacao">tipo de despesa</label>
-                <select className="input-field" onChange={(e) => setTipoDespesa(e.target.value)}>
+                <select className="input-field" onChange={(e) => setTipoDespesa(e.target.value === 'true')}>
                   <option value=''>tipo</option>
-                  <option value={true}>ganho</option>
-                  <option value={false}>gasto</option>
+                  <option value='true'>ganho</option>
+                  <option value='false'>gasto</option>
                 </select>
               </div>
               
