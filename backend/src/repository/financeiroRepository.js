@@ -19,13 +19,12 @@ export async function cadastrarDespesa({situacao, ds_despesa, valor}){
 }
 
 
-export async function listarDespesas() {
+export async function listarDespesasGeral() {
   const comando = `
   SELECT * FROM tb_financeiro;
   `;
 
   const [linhas] = await con.query(comando)
-  console.log(linhas);
   
   return linhas
 }
@@ -67,3 +66,25 @@ export async function excluirConta(id_despesa){
     throw new Error("Erro ao excluir paciente: " + err.message);
   }
 }
+
+export async function ListarLucros(){
+  try{
+    const comando = `select situacao, valor from tb_financeiro where sitacao = true`
+    const [resultado] = await con.query(comando)
+    return [resultado]
+  } catch (err){
+    throw new Error("Erro ao buscar lucro " + err.message);
+  }
+}
+
+export async function ListarGastos(){
+  try{
+    const comando = `select situacao, valor from tb_financeiro where sitacao = false`
+    const [resultado] = await con.query(comando)
+    return [resultado]
+  } catch (err){
+    throw new Error("Erro ao buscar lucro " + err.message);
+  }
+}
+
+

@@ -29,7 +29,7 @@ endpoints.post("/cadastroDespesa", async (req, resp) => {
 
 endpoints.get("/listarDespesas", async (req, resp) => {
   try {
-    const despesa = await db.listarDespesas();
+    const despesa = await db.listarDespesasGeral();
 
     if (despesa.length === 0) {
       return resp.status(404).send({
@@ -55,5 +55,30 @@ endpoints.delete("/excluirDespesas/:id", async (req, resp) => {
     return resp.status(500).send({erro: `Erro ao excluir conta: ${err.message}`})
   }
 });
+
+
+endpoints.get("/listarLucros", async (req,resp) =>{
+  try {
+    const lucros = await db.ListarLucros();
+    return  resp.status(200).send(lucros);
+  } catch (err) {
+    console.error("Erro ao listar lucros:", err);
+    resp.status(500).send({
+      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
+    });
+  }
+})
+
+endpoints.get("/listarGastos", async (req,resp) =>{
+  try {
+    const gastos = await db.ListarGastos();
+    return  resp.status(200).send(gastos);
+  } catch (err) {
+    console.error("Erro ao listar gastos:", err);
+    resp.status(500).send({
+      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
+    });
+  }
+})
 
 export default endpoints;
