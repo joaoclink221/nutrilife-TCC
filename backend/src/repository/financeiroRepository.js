@@ -69,7 +69,7 @@ export async function excluirConta(id_despesa){
 
 export async function ListarLucros(){
   try{
-    const comando = `select situacao, valor from tb_financeiro where sitacao = true`
+    const comando = `select situacao, valor from tb_financeiro where situacao = true`
     const [resultado] = await con.query(comando)
     return [resultado]
   } catch (err){
@@ -79,7 +79,7 @@ export async function ListarLucros(){
 
 export async function ListarGastos(){
   try{
-    const comando = `select situacao, valor from tb_financeiro where sitacao = false`
+    const comando = `select situacao, valor from tb_financeiro where situacao = false`
     const [resultado] = await con.query(comando)
     return [resultado]
   } catch (err){
