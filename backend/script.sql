@@ -4,7 +4,7 @@ use bd_nutrilife;
 
 create table tb_login(
 email                varchar(200),
-senha                varchar(20)
+senha                varchar(64)
 );
 
 insert into tb_login( email, senha)
