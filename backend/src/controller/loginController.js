@@ -1,30 +1,48 @@
 import * as db from "../repository/loginRepository.js";
-
+import { gerarToken } from "../utils/jwt.js";
 import { Router } from "express";
 const endpoints = Router();
 
+endpoints.post('/usuario/', async (req, resp) => {
+  try {
+      let pessoa = req.body;
+
+      let id = await db.inserirUsuario(pessoa);
+
+      resp.send({
+          novoId: id
+      })
+  }
+  catch (err) {
+      resp.status(400).send({
+          erro: err.message
+      })
+  }
+})
+
 
 //verifica o login
-endpoints.post("/login", async (req, resp) => {
+endpoints.post("/login/", async (req, resp) => {
   try {
-    const { email, senha } = req.body;
+    let nutri = req.body;
 
-    const uservalido = await db.verificarLogin(email, senha);
+    let usuario = await db.verificarLogin(nutri);
 
-    if (uservalido) {
-      resp.send({
-        message: "login feito com sucesso",
-      });
+    if (usuario == null) {
+        resp.send({ erro: "Usuário ou senha incorreto(s)" })
     } else {
-      resp.status(400).send({
-        message: "usuário ou senha incorreto.",
-      });
+        let token = gerarToken(usuario);
+        resp.send({
+            "usuario": usuario,
+            "token": token
+        })
     }
-  } catch (err) {
+}
+catch (err) {
     resp.status(400).send({
-      erro: err.message,
-    });
-  }
+        erro: err.message
+    })
+}
 });
 
 export default endpoints;

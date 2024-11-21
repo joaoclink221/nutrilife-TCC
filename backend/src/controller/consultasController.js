@@ -1,12 +1,12 @@
 import * as db from "../repository/consultasRepository.js";
-
+import { autenticar } from '../utils/jwt.js';
 import { Router } from "express";
 const endpoints = Router();
 
 //consultas
 
 
-endpoints.post("/CadastroConsulta", async (req, resp) => {
+endpoints.post("/CadastroConsulta/", autenticar,async (req, resp) => {
   try {
 
 
@@ -45,7 +45,7 @@ endpoints.post("/CadastroConsulta", async (req, resp) => {
 
 
 
-endpoints.get("/consultas", async (req, resp) => {
+endpoints.get("/consultas/", autenticar,async (req, resp) => {
   try {
     const consulta = await db.listarConsulta();
 
@@ -69,7 +69,7 @@ endpoints.get("/consultas", async (req, resp) => {
 
 
 
-endpoints.delete("/excluirConsultas/:id", async (req,resp) =>{
+endpoints.delete("/excluirConsultas/:id/", autenticar,async (req,resp) =>{
   try {
     const{id} = req.params
     const resultado = await db.excluirConsulta(id)
@@ -83,7 +83,7 @@ endpoints.delete("/excluirConsultas/:id", async (req,resp) =>{
 
 
 
-endpoints.put("/atualizarConsulta/:id", async (req,resp) =>{
+endpoints.put("/atualizarConsulta/:id/", autenticar,async (req,resp) =>{
   try {
     const { id } = req.params;
     const { nome_do_paciente, data_consulta, tipo_consulta, valor } = req.body;

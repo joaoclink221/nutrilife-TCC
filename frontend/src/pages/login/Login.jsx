@@ -14,16 +14,26 @@ export default function Login() {
   const logar = async (e) => {
     e.preventDefault();
     try {
-      const resposta = await axios.post("http://localhost:5010/login", {
+      const resposta = await axios.post("http://localhost:5010/login/", {
 
         email: email,
         senha: senha,
 
       });
-      setTimeout(() => {
-        navigate("/inicio");
-      }, 2000);
-      setMensagem(resposta.data.message);
+
+      if(resposta.data.token){
+        localStorage.setItem("TOKEN", resposta.data.token);
+        localStorage.setItem('USUARIO', JSON.stringify(resposta.data.usuario));
+        setMensagem(resposta.data.message);
+
+        setTimeout(() => {
+          navigate("/inicio");
+        }, 2000);
+      } else {
+        setMensagem('Falha no login, tente novamente.');
+      }
+      
+      
     } catch (err) {
       if (err.response) {
         setMensagem(err.response.data.message);

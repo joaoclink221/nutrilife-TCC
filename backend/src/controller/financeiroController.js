@@ -1,9 +1,9 @@
 import * as db from "../repository/financeiroRepository.js";
-
+import { autenticar } from '../utils/jwt.js';
 import { Router } from "express";
 const endpoints = Router();
 
-endpoints.post("/cadastroDespesa", async (req, resp) => {
+endpoints.post("/cadastroDespesa/", autenticar, async (req, resp) => {
   try {
     const { situacao, ds_despesa, valor } = req.body;
     const despesaId = await db.cadastrarDespesa({
@@ -24,7 +24,7 @@ endpoints.post("/cadastroDespesa", async (req, resp) => {
   }
 });
 
-endpoints.get("/listarDespesas", async (req, resp) => {
+endpoints.get("/listarDespesas/", autenticar,async (req, resp) => {
   try {
     const despesa = await db.listarDespesasGeral();
 
@@ -43,7 +43,7 @@ endpoints.get("/listarDespesas", async (req, resp) => {
   }
 });
 
-endpoints.delete("/excluirDespesas/:id", async (req, resp) => {
+endpoints.delete("/excluirDespesas/:id/", autenticar,async (req, resp) => {
   try {
     const { id } = req.params;
     const resultado = await db.excluirConta(id)
@@ -54,7 +54,7 @@ endpoints.delete("/excluirDespesas/:id", async (req, resp) => {
 });
 
 
-endpoints.get("/listarLucros", async (req,resp) =>{
+endpoints.get("/listarLucros/", autenticar,async (req,resp) =>{
   try {
     const lucros = await db.ListarLucros();
     return  resp.status(200).send(lucros);
@@ -66,7 +66,7 @@ endpoints.get("/listarLucros", async (req,resp) =>{
   }
 })
 
-endpoints.get("/listarGastos", async (req,resp) =>{
+endpoints.get("/listarGastos", autenticar,async (req,resp) =>{
   try {
     const gastos = await db.ListarGastos();
     return  resp.status(200).send(gastos);

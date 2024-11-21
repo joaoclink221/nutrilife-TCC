@@ -1,6 +1,6 @@
 import './app.scss';
 import { Link } from "react-router-dom"
-import React from 'react'
+
 
 export const App = () => {
 
