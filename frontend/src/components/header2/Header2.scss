@@ -11,15 +11,21 @@
   width: 100%; /* Ajusta a largura para ocupar o espaço */
 
   /* Responsividade para telas médias (tablets) */
+  @media (max-width: 1024px) {
+    gap: 3rem; /* Menor espaçamento */
+    height: 4rem; /* Ajuste da altura */
+  }
+
+  /* Responsividade para telas médias (tablets) */
   @media (max-width: 768px) {
     gap: 2rem; /* Reduz o espaçamento */
-    height: 3.5rem; /* Altura menor */
+    height: 4rem; /* Altura consistente */
   }
 
   /* Responsividade para telas pequenas (smartphones) */
   @media (max-width: 480px) {
     flex-direction: column; /* Organiza os itens verticalmente */
-    gap: 1rem; /* Reduz o espaçamento ainda mais */
+    gap: 1rem; /* Reduz o espaçamento */
     height: auto; /* Altura ajustada automaticamente */
   }
 }
@@ -27,16 +33,23 @@
 .buttons {
   display: inline-block;
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Tamanho inicial da fonte */
   line-height: 2.5rem;
   text-decoration: none;
   color: black;
 
+  /* Efeito hover */
   &:hover .gradient-underline {
-    transform: scaleX(1.2); /* Efeito de hover */
+    transform: scaleX(1.2);
   }
 
-  /* Responsividade para telas menores */
+  /* Responsividade para telas médias */
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
+
+  /* Responsividade para telas menores (tablets e celulares) */
   @media (max-width: 768px) {
     font-size: 1.2rem; /* Tamanho menor da fonte */
     line-height: 2rem;
@@ -44,6 +57,7 @@
 
   @media (max-width: 480px) {
     font-size: 1rem; /* Fonte ainda menor */
+    line-height: 1.8rem;
   }
 }
 
@@ -58,8 +72,12 @@
   transform-origin: center;
   transition: transform 0.3s ease;
 
-  /* Mantém a proporção em telas menores */
+  /* Responsividade para telas médias (tablets e celulares) */
   @media (max-width: 768px) {
     height: 2px;
+  }
+
+  @media (max-width: 480px) {
+    height: 1.5px; /* Menor para dispositivos pequenos */
   }
 }
