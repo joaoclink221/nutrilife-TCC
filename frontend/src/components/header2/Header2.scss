@@ -1,62 +1,85 @@
-.cable {
+.header2 {
   position: relative;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  .hamburger-icon {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+
+    svg {
+      color: black;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hamburger-icon {
+      display: block; 
+    }
+  }
+}
+
+.cable {
+  position: fixed;
+  top: 0;
+  right: -250px;
   background-color: #9ce9b0;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  margin: auto;
-  gap: 5rem; /* Espaçamento padrão entre os botões */
-  height: 4.3rem;
-  margin-bottom: 2rem;
-  width: 100%; /* Ajusta a largura para ocupar o espaço */
+  height: 100vh;
+  width: 250px;
+  transition: right 0.3s ease;
+  z-index: 5;
 
-  /* Responsividade para telas médias (tablets) */
   @media (max-width: 1024px) {
-    gap: 3rem; /* Menor espaçamento */
-    height: 4rem; /* Ajuste da altura */
+    width: 200px;
   }
 
-  /* Responsividade para telas médias (tablets) */
   @media (max-width: 768px) {
-    gap: 2rem; /* Reduz o espaçamento */
-    height: 4rem; /* Altura consistente */
+    right: -250px;
   }
 
-  /* Responsividade para telas pequenas (smartphones) */
-  @media (max-width: 480px) {
-    flex-direction: column; /* Organiza os itens verticalmente */
-    gap: 1rem; /* Reduz o espaçamento */
-    height: auto; /* Altura ajustada automaticamente */
+  &.open {
+    @media (max-width: 768px) {
+      right: 0;
+    }
   }
 }
 
 .buttons {
   display: inline-block;
   position: relative;
-  font-size: 1.5rem; /* Tamanho inicial da fonte */
+  font-size: 1.5rem;
   line-height: 2.5rem;
   text-decoration: none;
   color: black;
+  margin: 1rem 0;
 
-  /* Efeito hover */
   &:hover .gradient-underline {
     transform: scaleX(1.2);
   }
 
-  /* Responsividade para telas médias */
   @media (max-width: 1024px) {
     font-size: 1.4rem;
     line-height: 2.3rem;
   }
 
-  /* Responsividade para telas menores (tablets e celulares) */
   @media (max-width: 768px) {
-    font-size: 1.2rem; /* Tamanho menor da fonte */
+    font-size: 1.2rem;
     line-height: 2rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem; /* Fonte ainda menor */
+    font-size: 1rem;
     line-height: 1.8rem;
   }
 }
@@ -72,12 +95,11 @@
   transform-origin: center;
   transition: transform 0.3s ease;
 
-  /* Responsividade para telas médias (tablets e celulares) */
   @media (max-width: 768px) {
     height: 2px;
   }
 
   @media (max-width: 480px) {
-    height: 1.5px; /* Menor para dispositivos pequenos */
+    height: 1.5px;
   }
 }

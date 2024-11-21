@@ -1,22 +1,25 @@
+/* Estilos principais */
 .odin {
   background-color: #ffffff;
 }
 
 .pt-2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
-  gap: 40rem;
+  gap: 40px;
   background-color: #ffffff;
 }
+
 .pre-Modal {
   display: flex;
   gap: 25px;
-  background: none;
 }
+
 .link {
   text-decoration: none;
 }
+
 .agendamento {
   border: 3px solid #00bf63;
   border-radius: 5px;
@@ -28,6 +31,7 @@
   background-color: white;
   transition: background-color 0.3s ease;
 }
+
 .agendamento:hover {
   background-color: #49d190;
   color: white;
@@ -41,16 +45,12 @@
   background-color: transparent;
 }
 
-#startDate {
+#startDate, #endDate {
   width: 11rem;
   height: 3rem;
   font-size: 20px;
 }
-#endDate {
-  width: 11rem;
-  height: 3rem;
-  font-size: 20px;
-}
+
 .filter2 {
   border: 3px solid #018b48;
   border-radius: 8px;
@@ -61,20 +61,31 @@
   color: white;
   transition: background-color 0.3s ease;
 }
+
 .filter2:hover {
   background-color: #12a75f;
   color: white;
 }
+
 .table {
   margin-top: 3rem;
   text-align: center;
+  width: 100%;  
+  border-collapse: collapse;  
 }
+
+th, td {
+  padding: 12px;  
+}
+
 th {
   font-size: 20px;
 }
+
 td {
   font-size: 20px;
 }
+
 .bnt-editar, .btn-excluir {
   display: inline-flex;
   align-items: center;
@@ -126,14 +137,25 @@ td {
   height: 20px;
   margin-right: 6px;
 }
-/* Responsividade para telas médias (tablets) */
+
+/* Responsividade para telas pequenas */
+
 @media (max-width: 768px) {
   .pt-2 {
     flex-direction: column;
-    gap: 2rem; 
+    align-items: center;
+    gap: 2rem;
   }
 
-  .agendamento, .filter2 {
+  .agendamento {
+    width: 100%;
+    font-size: 15px;
+    height: 2.5rem;
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
   }
 
@@ -141,29 +163,12 @@ td {
     width: 100%;
   }
 
-  .filter {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .pt-2 {
-    gap: 1rem; 
-  }
-
-  .filter {
-    font-size: 16px; 
-    align-items: stretch;
-  }
-
-  .agendamento {
-    font-size: 15px;
-    height: 2.5rem;
+  .table {
+    width: 100%;
   }
 
   .filter2 {
+    width: 100%;
     font-size: 15px;
     height: 2.5rem;
   }
@@ -178,9 +183,10 @@ td {
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1366px) {
+/* Responsividade para telas médias (tablets) */
+@media (max-width: 1024px) {
   .pt-2 {
-    gap: 20rem;
+    gap: 20px;
   }
 
   .agendamento, .filter2 {
@@ -188,46 +194,47 @@ td {
   }
 
   .filter {
-    gap: 20px; 
+    gap: 20px;
   }
 
   th, td {
-    font-size: 18px; 
+    font-size: 18px;
   }
 }
 
-
+/* Responsividade para telas grandes */
 @media (min-width: 1366px) and (max-width: 1920px) {
   .pt-2 {
-    gap: 25rem; 
+    gap: 25rem;
   }
 
   .agendamento, .filter2 {
-    width: 12rem; 
+    width: 12rem;
   }
 
   th, td {
-    font-size: 20px; 
-  }
-}
-
-
-@media (min-width: 1921px) {
-  .pt-2 {
-    gap: 30rem; 
-  }
-
-  .agendamento, .filter2 {
-    width: 13rem; 
-  }
-
-  th, td {
-    font-size: 22px; 
+    font-size: 20px;
   }
 
   .filter {
-    gap: 30px; 
+    gap: 30px;
   }
 }
 
+@media (min-width: 1921px) {
+  .pt-2 {
+    gap: 30rem;
+  }
 
+  .agendamento, .filter2 {
+    width: 13rem;
+  }
+
+  th, td {
+    font-size: 22px;
+  }
+
+  .filter {
+    gap: 30px;
+  }
+}

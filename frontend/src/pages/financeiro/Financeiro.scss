@@ -1,13 +1,28 @@
-.pai-financeiro{
+.pai-financeiro {
     padding: 0 35px;
-
-}
-
-.tren1{
-margin: 200px;
-}
-
-.tabela{
+  
+    @media (max-width: 1024px) {
+      padding: 0 20px; // Reduz o padding em telas menores
+    }
+  
+    @media (max-width: 768px) {
+      padding: 0 10px; // Mais redução para telas muito pequenas
+    }
+  }
+  
+  .tren1 {
+    margin: 200px;
+  
+    @media (max-width: 1024px) {
+      margin: 20px 0; // Ajusta a margem para telas menores
+    }
+  
+    @media (max-width: 768px) {
+      margin: 20px 0;
+    }
+  }
+  
+  .tabela {
     height: 400px;
     width: 780px;
     border: solid 3px rgba(192, 190, 190, 0.911);
@@ -15,11 +30,19 @@ margin: 200px;
     backdrop-filter: blur(30px);
     border-radius: 10px;
     padding: 30px 90px;
-    
+  
+    @media (max-width: 1024px) {
+      width: 100%; // Torna a tabela responsiva
+      padding: 20px;
     }
-
-
-.tabela2{
+  
+    @media (max-width: 768px) {
+      padding: 15px;
+      height: auto; // Ajusta a altura para se adaptar ao conteúdo
+    }
+  }
+  
+  .tabela2 {
     height: 180px;
     width: 380px;
     background: rgba(223, 222, 222, 0.911);
@@ -28,11 +51,20 @@ margin: 200px;
     padding: 30px 90px;
     float: right;
     margin-top: 20px;
-}
-
-
-
-.circleModal{
+  
+    @media (max-width: 1024px) {
+      width: 100%; // Ajusta o tamanho da tabela para 100% da largura
+      padding: 20px;
+      margin-top: 10px;
+    }
+  
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  .circleModal {
     border: solid 2px #287c24;
     background: transparent;
     width: 40px;
@@ -42,10 +74,24 @@ margin: 200px;
     align-items: center;
     justify-content: center;
     margin-left: 1140px;
-}
-    
-.circle{
-    background-color:#7ed957;
+  
+    @media (max-width: 1024px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 50px;
+      height: 50px;
+    }
+  
+    @media (max-width: 768px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  .circle {
+    background-color: #7ed957;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -53,10 +99,20 @@ margin: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.circle2{
-    background-color:#d95757;
+  
+    @media (max-width: 1024px) {
+      width: 80px;
+      height: 80px;
+    }
+  
+    @media (max-width: 768px) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  
+  .circle2 {
+    background-color: #d95757;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -64,10 +120,20 @@ margin: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.circle3{
-    background-color:#146e0f;
+  
+    @media (max-width: 1024px) {
+      width: 80px;
+      height: 80px;
+    }
+  
+    @media (max-width: 768px) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  
+  .circle3 {
+    background-color: #146e0f;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -75,19 +141,48 @@ margin: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.icon{
+  
+    @media (max-width: 1024px) {
+      width: 80px;
+      height: 80px;
+    }
+  
+    @media (max-width: 768px) {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  
+  .icon {
     background: transparent;
     color: black;
-}
-
-.icon1{
+  
+    @media (max-width: 768px) {
+      font-size: 1.2rem; // Ajusta o tamanho dos ícones para telas menores
+    }
+  }
+  
+  .icon1 {
     background: transparent;
     color: #35b100dc;
-}
-
-.iconM{
+  
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .iconM {
     background: transparent;
-    color:#287c24
-}
+    color: #287c24;
+  
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+  
+  .botton {
+    @media (max-width: 768px) {
+      display: none; // Esconde o botão em telas pequenas se necessário
+    }
+  }
+  

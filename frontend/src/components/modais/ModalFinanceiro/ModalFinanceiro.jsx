@@ -26,7 +26,7 @@ const ModalFinanceiro = ({ isOpen, onClose}) => {
 
       const resposta = await axios.post(`http://localhost:5010/cadastroDespesa`, dados);
       setMensagem(`consulta registrada com sucesso`)
-      console.log(dados.situacao);
+
       
       setTipoDespesa("");
       setNomeDespesa("");
