@@ -1,7 +1,10 @@
+body{
+
+}
+
 .header2 {
   position: relative;
   width: 100%;
-  padding: 0 20px;
   box-sizing: border-box;
 
   .hamburger-icon {
@@ -27,32 +30,16 @@
 }
 
 .cable {
-  position: fixed;
-  top: 0;
-  left: -250px;
+  position: relative;
   background-color: #9ce9b0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  height: 100vh;
-  width: 250px;
-  transition: right 0.3s ease;
-  z-index: 10;
-
-  @media (max-width: 1024px) {
-    width: 200px;
-  }
-
-  @media (max-width: 768px) {
-    left: -250px;
-  }
-
-  &.open {
-    @media (max-width: 768px) {
-      left: 0;
-    }
-  }
+  justify-content: center;
+  margin: auto;
+  gap: 5rem; /* Espaçamento padrão entre os botões */
+  height: 4.3rem;
+  margin-bottom: 2rem;
+  width: 100%; /* Ajusta a largura para ocupar o espaço */
 }
 
 .buttons {

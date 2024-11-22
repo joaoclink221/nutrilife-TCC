@@ -46,13 +46,6 @@ import axios from "axios"
           <div className="add">
             <button className="addUser" onClick={() => setIsModalOpen(true)}><UserRoundPlus className="icon-user" /> Adicionar Paciente</button>
             <ModalPaciente isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} pacienteEditando={pacienteEditando} />
-            <select name="filter" id="filtro">
-              <option value="">Todos</option>
-              <option value="">Comum</option>
-              <option value="">Sério</option>
-              <option value="">Grave</option>
-              <option value="">Urgente</option>
-            </select>
           </div>
         </div>
 

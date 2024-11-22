@@ -26,7 +26,7 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       setNomePaciente(consultaEditando.nome_do_paciente);
       setValorConsulta(consultaEditando.valor);
       setTipoConsulta(consultaEditando.tipo_consulta);
-      setDataConsulta(consultaEditando.data_consulta.slice(0, 16));
+      setDataConsulta(consultaEditando.data_consulta.slice(0, 10));
       console.log(dataConsulta);
       
     } else{
@@ -107,7 +107,7 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
                 <div className="input-wrapper">
                   <label htmlFor="date">Data e hora da consulta</label>
                   <input
-                    type="datetime-local"
+                    type="date"
                     className="date-picker"
                     value={dataConsulta}
                     onChange={(e) => setDataConsulta(e.target.value)}

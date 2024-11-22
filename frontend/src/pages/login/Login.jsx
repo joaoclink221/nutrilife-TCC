@@ -26,7 +26,7 @@ export default function Login() {
         setMensagem(resposta.data.message);
 
         setTimeout(() => {
-          navigate("adm/inicio");
+          navigate("/inicio");
         }, 2000);
       } else {
         setMensagem('Falha no login, tente novamente.');

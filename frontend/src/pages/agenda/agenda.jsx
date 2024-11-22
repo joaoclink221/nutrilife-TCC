@@ -64,19 +64,6 @@ export default function Agenda() {
           </Link>
           <ModalConsulta isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} consultaEditando={consultaEditando}/>
         </div>
-        <div className='filter'>
-          <input id='startDate'
-            className="form-control"
-            type="date" />
-          <span>até</span>
-          <input id='endDate'
-            className="form-control"
-            type="date" />
-
-          <button className='hollow'>
-            Fitrar
-          </button>
-        </div>
       </div>
 
       {erro && <p style={{ color: 'red' }}>{erro}</p>}

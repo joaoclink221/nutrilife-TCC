@@ -13,7 +13,7 @@ const Inicio = () => {
       <div className='qq1'>
         <div className='q1'>
           <div className='quadro1'>
-            <Link to='adm/agenda'>
+            <Link to='/agenda'>
               <button className='boo'>
                 <Calendar />
                 <h1>Agenda</h1>
@@ -33,7 +33,7 @@ const Inicio = () => {
 
         <div className='q1'>
           <div className='quadro1'>
-            <Link to='adm/pacientes'>
+            <Link to='/pacientes'>
               <button className='boo'>
                 <ClipboardList />
                 <h1>Paciente</h1>
@@ -42,7 +42,7 @@ const Inicio = () => {
           </div>
 
           <div className='quadro1'>
-            <Link to='adm/financeiro'>
+            <Link to='/financeiro'>
               <button className='boo'>
                 <BadgeDollarSign />
                 <h1>Financeiro</h1>

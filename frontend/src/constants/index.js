@@ -2,27 +2,28 @@ export const navigation = [
     {
       id: "0",
       title: "Inicio",
-      url: "adm/inicio",
+      url: "/inicio",
     },
     {
       id: "1",
       title: "Financeiro",
-      url: "adm/financeiro",
+      url: "/financeiro",
     },
     {
       id: "3",
       title: "Agendamento",
-      url: "adm/agenda",
+      url: "/agenda",
     },
     {
       id: "4",
       title: "Pacientes",
-      url: "adm/pacientes",
+      url: "/pacientes",
     },
     {
       id: "5",
-      title: "Entrar",
-      url: "/login",
+      title: "Logout",
+      url: "/",
+      onclick: () => localStorage.removeItem('TOKEN'),
       onlyMobile: true,
     },
   ];
