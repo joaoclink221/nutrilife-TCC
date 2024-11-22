@@ -36,7 +36,7 @@ function Financeiro() {
         if (despesasList.length == 0) { setErro("nenhuma despesa encontrada") }
         else { setErro("erro ao buscar despesa. tente novamente mais tarde") }
       })
-  }, [despesasList])
+  }, [despesasList, isModalOpen])
 
   const excluiDespesa = async (id) => {
     try {

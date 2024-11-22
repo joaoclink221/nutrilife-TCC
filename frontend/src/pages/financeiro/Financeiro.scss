@@ -23,8 +23,8 @@
   }
   
   .tabela {
-    height: 400px;
-    width: 780px;
+    min-height: 400px;
+    min-width: 780px;
     border: solid 3px rgba(192, 190, 190, 0.911);
     float: left;
     backdrop-filter: blur(30px);
@@ -43,7 +43,7 @@
   }
   
   .tabela2 {
-    height: 180px;
+    height: auto;
     width: 380px;
     background: rgba(223, 222, 222, 0.911);
     backdrop-filter: blur(30px);

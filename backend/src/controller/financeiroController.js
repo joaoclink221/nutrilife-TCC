@@ -43,7 +43,7 @@ endpoints.get("/listarDespesas/", async (req, resp) => {
   }
 });
 
-endpoints.delete("/excluirDespesas/:id/", autenticar,async (req, resp) => {
+endpoints.delete("/excluirDespesas/:id/" ,async (req, resp) => {
   try {
     const { id } = req.params;
     const resultado = await db.excluirConta(id);
