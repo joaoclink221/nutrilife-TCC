@@ -12,3 +12,21 @@
     box-sizing: border-box;
     color-scheme: light;
   }
+
+  
+    
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  body::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 8px;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: #6ae089;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: #4db86b; 
+  }

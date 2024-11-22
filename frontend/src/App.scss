@@ -284,16 +284,35 @@
   h1{
     font-family: 'montserrat';
     font-size: 60px;
-    color: #013000;
+    color: #146E0F;
     text-align: center;
   }
 
   h3{
     font-family: 'montserrat';
+    color: #146E0F;
+    font-weight: 700;
 
   }
 
   p{
     font-family: 'poppins';
+    color: #146E0F;
+  }
+
+  .bc1{
+    border: #146E0F 1.5px solid;
+    border-radius: 22px;
+    padding: 20px 30px;
+
+  }
+
+  .blocos{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 50px;
+    gap: 30px;
   }
 }
+

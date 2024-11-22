@@ -51,12 +51,11 @@ function Financeiro() {
     <div className='vô-financeiro'>
       <Header2 />
 
-      <div className="pai-financeiro">
-
-        <button className='circleModal' onClick={() => setIsModalOpen(true)}>
+      <button className='circleModal' onClick={() => setIsModalOpen(true)}>
           <PlusIcon className="iconM" />
         </button>
 
+      <div className="pai-financeiro">
         <ModalFinanceiro isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         {erro && <p style={{ color: 'red' }}>{erro}</p>}
@@ -96,66 +95,67 @@ function Financeiro() {
         <div className='botton'>
 
         </div>
+        <div className='valores'>
+            <div className='tabela2'>
 
-        <div className='tabela2'>
+              <div className='circle'>
+                <ArrowUp className="icon" />
+              </div>
 
-          <div className='circle'>
-            <ArrowUp className="icon" />
-          </div>
+              <table className="tabela3">
+                <thead>
+                  <tr className='tren1'>
+                    <th scope='col'>Receita do mês</th>
+                    <th scope='col' className='col-buttons'></th>
+                  </tr>
+                </thead>
 
-          <table className="tabela3">
-            <thead>
-              <tr className='tren1'>
-                <th scope='col'>Receita do mês</th>
-                <th scope='col' className='col-buttons'></th>
-              </tr>
-            </thead>
+                <tbody>
+                  <tr className='tren'>
+                    <td scope='col'>{totalReceitas}</td>
 
-            <tbody>
-              <tr className='tren'>
-                <td scope='col'>{totalReceitas}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            <div className='tabela2'>
+              <div className='circle2'>
+                <ArrowDown className="icon" />
+              </div>
+              <table className="tabela3">
+                <thead>
+                  <tr className='tren1'>
+                    <th scope='col'>Dispesas</th>
+                    <th scope='col' className='col-buttons'></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className='tren'>
+                    <td scope='col'>{totalDespesas}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-        <div className='tabela2'>
-          <div className='circle2'>
-            <ArrowDown className="icon" />
-          </div>
-          <table className="tabela3">
-            <thead>
-              <tr className='tren1'>
-                <th scope='col'>Dispesas</th>
-                <th scope='col' className='col-buttons'></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className='tren'>
-                <td scope='col'>{totalDespesas}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className='tabela2'>
-          <div className='circle3'>
-            <HandCoins className="icon" />
-          </div>
-          <table className="tabela3">
-            <thead>
-              <tr className='tren1'>
-                <th scope='col'>Lucro</th>
-                <th scope='col' className='col-buttons'></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className='tren'>
-                <td scope='col'>{lucro}</td>
-              </tr>
-            </tbody>
-          </table>
+            <div className='tabela2'>
+              <div className='circle3'>
+                <HandCoins className="icon" />
+              </div>
+              <table className="tabela3">
+                <thead>
+                  <tr className='tren1'>
+                    <th scope='col'>Lucro</th>
+                    <th scope='col' className='col-buttons'></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className='tren'>
+                    <td scope='col'>{lucro}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
         </div>
 
 

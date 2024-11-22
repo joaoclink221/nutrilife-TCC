@@ -67,16 +67,16 @@ export const App = () => {
         <h1>DÚVIDAS FREQUNTES</h1>
 
         <div className='blocos'>
-          <div className='bc1'><h3>duvida</h3>
-          <p>resposta</p>
+          <div className='bc1'><h3>COCA ZERO É REALMENTE ZERO?</h3>
+          <p>Coca-Cola Zero Açúcar não tem açúcar e quase nenhuma caloria, mas o "zero" não é absoluto, já que ainda possui menos de 1 kcal por porção.</p>
           </div>
 
-          <div className='bc2'><h3>duvida</h3>
-          <p>resposta</p>
+          <div className='bc1'><h3>MANTEIGA ENGORDA?</h3>
+          <p>Manteiga não engorda sozinha, mas, por ser calórica, o excesso pode contribuir para o ganho de peso se houver desequilíbrio entre consumo e gasto energético.</p>
           </div>
 
-          <div className='bc1'><h3>duvida</h3>
-          <p>resposta</p>
+          <div className='bc1'><h3>Qual alimento causa calvice?</h3>
+          <p>Nenhum alimento isolado causa calvície, mas uma dieta rica em ultraprocessados e pobre em nutrientes pode agravar condições que levam à queda de cabelo, especialmente se houver predisposição genética.</p>
           </div>
           
         </div>

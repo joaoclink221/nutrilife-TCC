@@ -54,8 +54,8 @@ export default function Agenda() {
   return (
     <div className='odin'>
       <Header2 />
-      <div className='pt-2'>
-        <div className='pre-Modal'>
+      <div className='pt-2 px-5'>
+        <div className='pre-Modal w-100 flex-row justify-content-between'>
           <h2>Agendamentos</h2>
           <Link className='link'>
             <button className='agendamento' onClick={() => setIsModalOpen(true)}>
