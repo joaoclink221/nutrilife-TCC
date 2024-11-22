@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
 import "./ModalConsulta.scss";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 
 function ModalConsulta({ isOpen, onClose, consultaEditando }) {
+  const [token, setToken] = useState(null)
   const [nomePaciente, setNomePaciente] = useState("");
   const [valorConsulta, setValorConsulta] = useState();
   const [tipoConsulta, setTipoConsulta] = useState("");
   const [dataConsulta, setDataConsulta] = useState("");
   const [mensagem, setMensagem] = useState("");
+
+  useEffect(() => {
+    let token = localStorage.getItem('TOKEN')
+    setToken(token)
+
+    if (token === null) {
+      Navigate(`/`)
+    }
+  }, [])
 
   useEffect(() =>{
     if(consultaEditando){
@@ -47,12 +58,12 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
 
       if(consultaEditando){
         console.log(consultaEditando)
-        const resposta = await axios.put(`http://localhost:5010/AtualizarConsulta/${consultaEditando.id_consulta}`, dados)
+        const resposta = await axios.put(`http://localhost:5010/AtualizarConsulta/${consultaEditando.id_consulta}?x-access-token=${token}`, dados)
         setMensagem(`consulta editada com sucesso`)
       } else{
         console.log(dataConsulta);
         
-        const resposta = await axios.post("http://localhost:5010/CadastroConsulta", dados);
+        const resposta = await axios.post(`http://localhost:5010/CadastroConsulta?x-access-token=${token}`, dados);
         setMensagem(`Consulta registrada com sucesso!`);
         setNomePaciente("");
         setDataConsulta("");
@@ -69,6 +80,8 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
       setMensagem(erro.response?.data?.erro || "Erro ao conectar com o servidor.");
     }
   };
+
+
   
 
   return (

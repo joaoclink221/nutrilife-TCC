@@ -1,11 +1,12 @@
 import * as db from "../repository/consultasRepository.js";
 import { Router } from "express";
+import { autenticar } from "../utils/jwt.js";
 
 const endpoints = Router();
 
 // consultas
 
-endpoints.post("/CadastroConsulta/", async (req, resp) => {
+endpoints.post("/CadastroConsulta/", autenticar, async (req, resp) => {
   try {
     const { nome_do_paciente, data_consulta, tipo_consulta, valor } = req.body;
 
