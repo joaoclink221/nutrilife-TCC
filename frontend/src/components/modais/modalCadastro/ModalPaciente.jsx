@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ModalPaciente.scss"
 import axios from "axios";
 const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
@@ -16,6 +17,16 @@ const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
   const [fim, setFim] = useState('')
   const [description, setDescritption] = useState('')
   const [mensagem, setMensagem] = useState("");
+  const [token, setToken] = useState(null)
+const Navigate = useNavigate()
+useEffect(() => {
+    let token = localStorage.getItem('TOKEN')
+    setToken(token)
+
+    if (token === null) {
+      Navigate(`/`)
+    }
+  }, [])
 
   useEffect(() => {
     if (pacienteEditando) {
@@ -91,14 +102,14 @@ const ModalPaciente = ({ isOpen, onClose, pacienteEditando }) => {
 
       if(pacienteEditando){
         console.log(pacienteEditando);
-        const resposta = await axios.put(`http://localhost:5010/atualizarPaciente/${pacienteEditando.id_paciente}`,dados)
+        const resposta = await axios.put(`http://localhost:5010/atualizarPaciente/${pacienteEditando.id_paciente}?x-access-token=${token}`,dados)
         alert(resposta.data.message);
         setMensagem(`ficha do paciente editada com sucesso`)
       } else{
         console.log(inicio);
         console.log(fim);
 
-        const resposta = await axios.post("http://localhost:5010/cadastropaciente", dados)
+        const resposta = await axios.post(`http://localhost:5010/cadastropaciente?x-access-token=${token}`, dados)
         setMensagem(`paciente registrado com sucesso!`);
         alert(resposta.data.message);
         setNome("")

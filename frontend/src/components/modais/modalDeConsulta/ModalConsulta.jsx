@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ModalConsulta.scss";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function ModalConsulta({ isOpen, onClose, consultaEditando }) {
@@ -11,7 +11,7 @@ function ModalConsulta({ isOpen, onClose, consultaEditando }) {
   const [tipoConsulta, setTipoConsulta] = useState("");
   const [dataConsulta, setDataConsulta] = useState("");
   const [mensagem, setMensagem] = useState("");
-
+  const Navigate = useNavigate()
   useEffect(() => {
     let token = localStorage.getItem('TOKEN')
     setToken(token)

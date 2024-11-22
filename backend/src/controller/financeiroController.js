@@ -1,9 +1,10 @@
 import * as db from "../repository/financeiroRepository.js";
 import { Router } from "express";
+import { autenticar } from "../utils/jwt.js"; 
 
 const endpoints = Router();
 
-endpoints.post("/cadastroDespesa/", async (req, resp) => {
+endpoints.post("/cadastroDespesa/", autenticar,async (req, resp) => {
   try {
     const { situacao, ds_despesa, valor } = req.body;
     const despesaId = await db.cadastrarDespesa({
@@ -42,7 +43,7 @@ endpoints.get("/listarDespesas/", async (req, resp) => {
   }
 });
 
-endpoints.delete("/excluirDespesas/:id/", async (req, resp) => {
+endpoints.delete("/excluirDespesas/:id/", autenticar,async (req, resp) => {
   try {
     const { id } = req.params;
     const resultado = await db.excluirConta(id);
@@ -54,28 +55,6 @@ endpoints.delete("/excluirDespesas/:id/", async (req, resp) => {
   }
 });
 
-endpoints.get("/listarLucros/", async (req, resp) => {
-  try {
-    const lucros = await db.ListarLucros();
-    return resp.status(200).send(lucros);
-  } catch (err) {
-    console.error("Erro ao listar lucros:", err);
-    resp.status(500).send({
-      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
-    });
-  }
-});
 
-endpoints.get("/listarGastos", async (req, resp) => {
-  try {
-    const gastos = await db.ListarGastos();
-    return resp.status(200).send(gastos);
-  } catch (err) {
-    console.error("Erro ao listar gastos:", err);
-    resp.status(500).send({
-      erro: `Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde. ${err.message}`,
-    });
-  }
-});
 
 export default endpoints;

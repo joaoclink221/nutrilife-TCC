@@ -1,5 +1,5 @@
 import './agenda.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header2 from "../../components/header2/Header2.jsx"
 import ModalConsulta from "../../components/modais/modalDeConsulta/ModalConsulta.jsx"
 import { useState, useEffect } from 'react';
@@ -10,7 +10,16 @@ export default function Agenda() {
   const [consultasList, setConsultasList] = useState([]);
   const [erro, setErro] = useState(null);
   const [consultaEditando, setConsultaEditando] = useState(null);
+  const [token, setToken] = useState(null)
+  const Navigate = useNavigate()
+  useEffect(() => {
+    let token = localStorage.getItem('TOKEN')
+    setToken(token)
 
+    if (token === null) {
+      Navigate(`/`)
+    }
+  }, [])
   useEffect(() => {
     axios.get("http://localhost:5010/consultas")
       .then(Response => {
@@ -29,7 +38,7 @@ export default function Agenda() {
 
   const excluirConsulta = async (id) =>{
     try {
-      const resposta = await axios.delete(`http://localhost:5010/excluirConsultas/${id}`);
+      const resposta = await axios.delete(`http://localhost:5010/excluirConsultas/${id}?x-access-token=${token}`);
       alert(resposta.data.message);
       setConsultasList(consultasList.filter((consulta) => consulta.id_consulta !==id));
     } catch (erro) {

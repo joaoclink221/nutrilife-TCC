@@ -1,9 +1,10 @@
 import * as db from "../repository/pacientesRepository.js";
 import { Router } from "express";
+import { autenticar } from "../utils/jwt.js";
 const endpoints = Router();
 
 // Cadastra pacientes
-endpoints.post("/CadastroPaciente/", async (req, resp) => {
+endpoints.post("/CadastroPaciente/", autenticar,async (req, resp) => {
   try {
     const {
       nome,
@@ -92,7 +93,7 @@ endpoints.get("/listaPaciente/", async (req, resp) => {
 });
 
 // Exclui paciente
-endpoints.delete("/excluirPaciente/:id/", async (req, resp) => {
+endpoints.delete("/excluirPaciente/:id/", autenticar,async (req, resp) => {
   try {
     const { id } = req.params;
     const resultado = await db.excluirPaciente(id);
@@ -105,7 +106,7 @@ endpoints.delete("/excluirPaciente/:id/", async (req, resp) => {
 });
 
 // Atualiza paciente
-endpoints.put("/atualizarPaciente/:id/", async (req, resp) => {
+endpoints.put("/atualizarPaciente/:id/", autenticar,async (req, resp) => {
   try {
     const { id } = req.params;
     const {
