@@ -23,11 +23,10 @@ export default function Login() {
 
       if(resposta.data.token){
         localStorage.setItem("TOKEN", resposta.data.token);
-        localStorage.setItem('USUARIO', JSON.stringify(resposta.data.usuario));
         setMensagem(resposta.data.message);
 
         setTimeout(() => {
-          navigate("/inicio");
+          navigate("adm/inicio");
         }, 2000);
       } else {
         setMensagem('Falha no login, tente novamente.');

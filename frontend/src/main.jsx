@@ -16,11 +16,11 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/inicio' element={<Inicio />} />
-        <Route path='/financeiro' element={<Financeiro />} />
-        <Route path='/consulta' element={<ModalConsulta />} />
-        <Route path='/pacientes' element={< Pacientes />} />
-        <Route path='/agenda' element={<Agenda />} />
+        <Route path='adm/inicio' element={<Inicio />} />
+        <Route path='adm/financeiro' element={<Financeiro />} />
+        <Route path='adm/consulta' element={<ModalConsulta />} />
+        <Route path='adm/pacientes' element={< Pacientes />} />
+        <Route path='adm/agenda' element={<Agenda />} />
       </Routes>
     </Router>
   </StrictMode>,

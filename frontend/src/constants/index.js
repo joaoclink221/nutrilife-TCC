@@ -2,22 +2,22 @@ export const navigation = [
     {
       id: "0",
       title: "Inicio",
-      url: "/inicio",
+      url: "adm/inicio",
     },
     {
       id: "1",
       title: "Financeiro",
-      url: "/financeiro",
+      url: "adm/financeiro",
     },
     {
       id: "3",
       title: "Agendamento",
-      url: "/agenda",
+      url: "adm/agenda",
     },
     {
       id: "4",
       title: "Pacientes",
-      url: "/pacientes",
+      url: "adm/pacientes",
     },
     {
       id: "5",
