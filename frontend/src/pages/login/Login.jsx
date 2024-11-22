@@ -1,4 +1,4 @@
-import "./login.scss";
+import "./Login.scss";
 import { Link } from "react-router-dom";
 import { UserRound, KeySquare } from "lucide-react"
 import axios from "axios";
